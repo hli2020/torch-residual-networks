@@ -16,17 +16,17 @@ nngraph.setDebug(true)
 function stop() os.exit() end
 -- when debug mode is set, no workbook is saved and some intermediate
 -- results (loss, shape, etc) will appear.
-local DEBUG = true
+local DEBUG = false
 
 opt = {
   batchSize         = 64,
   iterSize          = 2,
-  Nsize             = 3,
+  Nsize             = 30,
   --dataRoot          = "/home/hongyang/Desktop/cifar-10-batches-t7",
   dataRoot	    = "/media/DATADISK/hyli/dataset/cifar-10-batches-t7",
   loadFrom          = "",
   expRootName       = "cifar_ablation",
-  expSuffix         = "dfd",
+  expSuffix         = "ls139",
   gpuId             = 1,
   localSaveInterval = 50
 }
@@ -37,7 +37,7 @@ if expSuffix ~= "" then
   opt.note = opt.note .. "_" .. opt.expSuffix
 end
 -- make folder to hold local model results
-os.execute("mkdir snapshots/"..opt.expRootName.."/"..opt.note)
+os.execute("mkdir -p snapshots/"..opt.expRootName.."/"..opt.note)
 
 print("Training settings:")
 print(opt)
@@ -111,9 +111,9 @@ if opt.loadFrom == "" then
     -- got crazy nan outputs
     local aa = model:forward(torch.randn(100, 3, 32,32):cuda())
     print(aa[{ {1}, {} }])
-    graph.dot(model.fg, 'Forward Graph', opt.note)
-    local command = string.format("mv %s.* snapshots/graph", opt.note)
-    os.execute(command)
+    --graph.dot(model.fg, 'Forward Graph', opt.note)
+    --local command = string.format("mv %s.* snapshots/graph", opt.note)
+    --os.execute(command)
 
 else
     print("Loading model from "..opt.loadFrom)

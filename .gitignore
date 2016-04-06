@@ -1,6 +1,7 @@
-snapshots
+*.t7
 mnist.hdf5
 *.swp
 cache
 *.svg
 *.dot
+.ipynb*

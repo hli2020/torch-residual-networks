@@ -26,7 +26,8 @@ opt = {
   loadFrom          = "",
   expRootName       = "cifar_ablation",
   expSuffix         = "dfd",
-  gpuId             = 1
+  gpuId             = 1,
+  localSaveInterval = 50
 }
 
 opt.note = string.format("N_%d_size_b%d_i%d", opt.Nsize, 
@@ -34,6 +35,8 @@ opt.note = string.format("N_%d_size_b%d_i%d", opt.Nsize,
 if expSuffix ~= "" then
   opt.note = opt.note .. "_" .. opt.expSuffix
 end
+-- make folder to hold local model results
+os.execute("mkdir snapshots/"..opt.expRootName.."/"..opt.note)
 
 print("Training settings:")
 print(opt)
@@ -47,11 +50,8 @@ if DEBUG == false then
   hasWorkbook, labWorkbook = pcall(require, 'lab-workbook')
   if hasWorkbook then
     workbook = labWorkbook:newExperiment{}
-    lossLog = workbook:newTimeSeriesLog("Training loss",
-                                        {"nImages", "loss"},
-                                        100)
-    errorLog = workbook:newTimeSeriesLog("Testing Error",
-                                         {"nImages", "error"})
+    lossLog = workbook:newTimeSeriesLog("Training loss", {"nImages", "loss"}, 500)
+    errorLog = workbook:newTimeSeriesLog("Testing Error", {"nImages", "error"})
     workbook:saveGitStatus()
     workbook:saveJSON("opt", opt)
   else
@@ -125,6 +125,7 @@ end
 loss = nn.ClassNLLCriterion()
 loss:cuda()
 
+-- init
 sgdState = {
    -- My semi-working settings
    learningRate   = "will be set later",
@@ -201,8 +202,7 @@ function forwardBackwardBatch(batch)
     end
 
     if hasWorkbook then
-      lossLog{nImages = sgdState.nSampledImages,
-              loss = loss_val}
+      lossLog{nImages = sgdState.nSampledImages, loss = loss_val}
     end
 
     -- the last argument is batchProcessed (aka, nSampledImages in sgd)
@@ -215,15 +215,26 @@ function evalModel()
     --print(string.format(' * Test accuracy top1: %.3f  top5: %.3f', results.correct1, results.correct5))
     print(' * Test accuracy top1:', results.correct1)
 
+    local iter = sgdState.epochCounter
     if hasWorkbook then
-      errorLog{nImages = sgdState.nSampledImages or 0,
-               error = 1.0 - results.correct1}
-      if (sgdState.epochCounter or -1) % 10 == 0 then
+      
+      errorLog{ nImages = sgdState.nSampledImages or 0, 
+                error = 1.0 - results.correct1 }
+
+      if (iter or -1) % 100 == 0 then
         workbook:saveTorch("model", model)
         workbook:saveTorch("sgdState", sgdState)
       end
     end
-    
+
+    -- save a copy to local
+    if ( iter > 1) and (iter % opt.localSaveInterval == 0) then
+      torch.save(string.format("model_epoch_%d.t7", iter), model)
+      torch.save(string.format("sgdState_epoch_%d.t7", iter), sgdState)
+      os.execute("mv *.t7 snapshots/" .. opt.expRootName .."/".. opt.note)
+      print(' * saving model and optState to local mahine...')
+    end
+
     if (sgdState.epochCounter or 0) > 200 then
         print("Training done! Check the results!")
         os.exit()

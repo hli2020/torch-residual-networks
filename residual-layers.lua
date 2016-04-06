@@ -1,21 +1,5 @@
 --[[
 Copyright (c) 2016 Michael Wilber
-
-This software is provided 'as-is', without any express or implied
-warranty. In no event will the authors be held liable for any damages
-arising from the use of this software.
-
-Permission is granted to anyone to use this software for any purpose,
-including commercial applications, and to alter it and redistribute it
-freely, subject to the following restrictions:
-
-1. The origin of this software must not be misrepresented; you must not
-   claim that you wrote the original software. If you use this software
-   in a product, an acknowledgement in the product documentation would be
-   appreciated but is not required.
-2. Altered source versions must be plainly marked as such, and must not be
-   misrepresented as being the original software.
-3. This notice may not be removed or altered from any source distribution.
 --]]
 
 require 'nn'
@@ -53,14 +37,16 @@ function addResidualLayer2(input,  nChannels, nOutChannels, stride)
    local net = cudnn.SpatialConvolution(nChannels, nOutChannels,
                                            3,3, stride,stride, 1,1)
                                            :init('weight', nninit.kaiming, {gain = 'relu'})
+                                           --:init('weight', nninit.normal, 0.1, 0.01)
                                            :init('bias', nninit.constant, 0)(input)
-   net = cudnn.SpatialBatchNormalization(nOutChannels)
-                                            :init('weight', nninit.normal, 1.0, 0.002)
+   net = cudnn.SpatialBatchNormalization(nOutChannels)        -- default mean 1, std 0.002
+                                            :init('weight', nninit.normal, 1, 0.002)
                                             :init('bias', nninit.constant, 0)(net)
    net = cudnn.ReLU(true)(net)
    net = cudnn.SpatialConvolution(nOutChannels, nOutChannels,
                                       3,3, 1,1, 1,1)
                                       :init('weight', nninit.kaiming, {gain = 'relu'})
+                                      --:init('weight', nninit.normal, 0.1, 0.01)
                                       :init('bias', nninit.constant, 0)(net)
    -- Should we put Batch Normalization here? I think not, because
    -- BN would force the output to have unit variance, which breaks the residual
@@ -77,6 +63,7 @@ function addResidualLayer2(input,  nChannels, nOutChannels, stride)
    if nOutChannels > nChannels then
        -- optional padding
        skip = nn.Padding(1, (nOutChannels - nChannels), 3)(skip)
+       --skip = nn.Padding(2, (nOutChannels - nChannels))(skip)
    elseif nOutChannels < nChannels then
        -- optional narrow, ugh.
        skip = nn.Narrow(2, 1, nOutChannels)(skip)
@@ -84,7 +71,9 @@ function addResidualLayer2(input,  nChannels, nOutChannels, stride)
    end
 
    -- Add them together
-   net = cudnn.SpatialBatchNormalization(nOutChannels)(net)
+   net = cudnn.SpatialBatchNormalization(nOutChannels)
+                                            :init('weight', nninit.normal, 1, 0.002)
+                                            :init('bias', nninit.constant, 0)(net)
    net = nn.CAddTable(){net, skip}
    net = cudnn.ReLU(true)(net)
    -- ^ don't put a ReLU here! see http://gitxiv.com/comments/7rffyqcPLirEEsmpX

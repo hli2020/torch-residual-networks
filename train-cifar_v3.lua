@@ -13,15 +13,16 @@ require 'data.cifar-dataset'
 
 local nninit = require 'nninit'
 
-nngraph.setDebug(true)
+--nngraph.setDebug(true)
 function stop() os.exit() end
 
 --[[
   v3
 ]]
--- when debug mode is set, no workbook is saved and some intermediate
--- results (loss, shape, etc) will appear.
+-- when debug mode is set, some intermediate
+-- results (loss, shape, etc) will appear in the terminal.
 local DEBUG = true
+local AWS = true
 
 opt = {
   batchSize         = 64,
@@ -31,9 +32,9 @@ opt = {
   --dataRoot	    = "/media/DATADISK/hyli/dataset/cifar-10-batches-t7",
   loadFrom          = "",
   expRootName       = "cifar_ablation",
-  expSuffix         = "ls139",
+  expSuffix         = "local",        -- indicate which machine it's deployed
   gpuId             = 2,
-  localSaveInterval = 50
+  localSaveInterval = 2
 }
 
 opt.note = string.format("N_%d_size_b%d_i%d", opt.Nsize, 
@@ -50,25 +51,26 @@ opt.gpuId = opt.gpuId or 1;
 print("Running on GPU #", opt.gpuId)
 cutorch.setDevice(opt.gpuId)
 
--- Feel free to comment these out --
+------- Feel free to comment these out -------
+----------------------------------------------
 hasWorkbook = false
-if DEBUG == false then
-
-  print "DEPLOY MODE"
+if AWS then
   hasWorkbook, labWorkbook = pcall(require, 'lab-workbook')  
   if hasWorkbook then  
     workbook = labWorkbook:newExperiment{}
-    lossLog = workbook:newTimeSeriesLog("Training loss", {"nImages", "loss"}, 500)
+    lossLog = workbook:newTimeSeriesLog("Training loss", {"nImages", "loss", "lr"}, 200)
     errorLog = workbook:newTimeSeriesLog("Testing Error", {"nImages", "error"})
     workbook:saveGitStatus()
     workbook:saveJSON("opt", opt)
   else
     print "WARNING: No workbook support. No results will be saved."
   end
-else
-  print "DEBUG MODE"
 end
-------------------------------------
+----------------------------------------------
+----------------------------------------------
+-- a = workbook.tag
+-- print(a)
+-- stop()
 
 -- create data loader
 dataTrain = Dataset.CIFAR(opt.dataRoot, "train", opt.batchSize)
@@ -116,12 +118,16 @@ if opt.loadFrom == "" then
     model = nn.gModule({input}, {model})
     model:cuda()
 
-    -- got crazy nan outputs
-    local aa = model:forward(torch.randn(100, 3, 32,32):cuda())
-    print(aa[{ {1}, {} }])
-    --graph.dot(model.fg, 'Forward Graph', opt.note)
-    --local command = string.format("mv %s.* snapshots/graph", opt.note)
-    --os.execute(command)
+    -- got crazy nan outputs if initialized improperly
+    local temp = model:forward(torch.randn(100, 3, 32,32):cuda())
+    print("output of random init:")
+    print(temp[{ {1}, {} }])
+
+    -- save the network in local
+    -- TODO: save it to S3
+    graph.dot(model.fg, 'Forward Graph', 'net_architecture')
+    local command = string.format("mv net_architecture.* snapshots/%s/%s", opt.expRootName, opt.note)
+    os.execute(command)
 
 else
     print("Loading model from "..opt.loadFrom)
@@ -211,7 +217,7 @@ function forwardBackwardBatch(batch)
     end
 
     if hasWorkbook then
-      lossLog{nImages = sgdState.nSampledImages, loss = loss_val}
+      lossLog{nImages = sgdState.nSampledImages, loss = loss_val, lr = sgdState.learningRate}
     end
 
     -- the last argument is batchProcessed (aka, nSampledImages in sgd)
@@ -230,10 +236,11 @@ function evalModel()
       errorLog{ nImages = sgdState.nSampledImages or 0, 
                 error = 1.0 - results.correct1 }
 
-      if (iter or -1) % 100 == 0 then
-        workbook:saveTorch("model", model)
-        workbook:saveTorch("sgdState", sgdState)
-      end
+      -- from v3, we dont save them to s3     
+      -- if (iter or -1) % 100 == 0 then
+      --   workbook:saveTorch("model", model)
+      --   workbook:saveTorch("sgdState", sgdState)
+      -- end
     end
 
     -- save a copy to local
@@ -264,17 +271,14 @@ display.image(image.load('/tmp/MLP.png'), {title="Network Structure", win=23})
 weights, gradients = model:getParameters()
 
 -- some interesting stuff here
---hasWorkbook, labWorkbook = pcall(require, 'lab-workbook')   
---workbook = labWorkbook:newExperiment{}
---TrainingHelpers.displayWeights(model)
+-- results = TrainingHelpers.inspectModel(model)
+-- TrainingHelpers.printInspection(results)
 
-results = TrainingHelpers.inspectModel(model)
-TrainingHelpers.printInspection(results)
-
--- TrainingHelpers.trainForever(
---   forwardBackwardBatch,
---   weights,
---   sgdState,
---   dataTrain:size(),
---   evalModel
--- )
+TrainingHelpers.trainForever(
+  forwardBackwardBatch,
+  weights,
+  sgdState,
+  dataTrain:size(),
+  evalModel,
+  hasWorkbook
+)

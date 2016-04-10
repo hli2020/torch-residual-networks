@@ -5,3 +5,4 @@ cache
 *.svg
 *.dot
 .ipynb*
+*.csv

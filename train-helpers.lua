@@ -31,7 +31,7 @@ function evaluateModel(model, datasetTest, batchSize)
    return {correct1=correct1/total, correct5=correct5/total}
 end
 
-function TrainingHelpers.trainForever(forwardBackwardBatch, weights, sgdState, epochSize, afterEpoch)
+function TrainingHelpers.trainForever(forwardBackwardBatch, weights, sgdState, epochSize, afterEpoch, hasWorkBook)
    local d = Date{os.date()}
    local modelTag = string.format("%04d%02d%02d-%d",
       d:year(), d:month(), d:day(), torch.random())
@@ -51,12 +51,19 @@ function TrainingHelpers.trainForever(forwardBackwardBatch, weights, sgdState, e
 
       -- only execute once
       if sgdState.nSampledImages == 0 then
-        print("\n\n----- Epoch "..sgdState.epochCounter.." -----")
+        
+        if hasWorkBook then
+          print("\n\n----- Epoch "..sgdState.epochCounter.." ----- ".."Tag: "..workbook.tag)
+        else
+          print("\n\n----- Epoch "..sgdState.epochCounter.." -----")
+        end
+        
       end
 
       -- Run forward and backward pass(iteration) on inputs and labels
       local loss_val, gradients, batchProcessed = forwardBackwardBatch()
 
+      -- only execute once
       if sgdState.nSampledImages == 0 then
         --print(string.format("learning rate is %.4f", sgdState.learningRate))
         print("learning rate is", sgdState.learningRate)
@@ -65,9 +72,10 @@ function TrainingHelpers.trainForever(forwardBackwardBatch, weights, sgdState, e
       -- SGD step: modifies weights in-place
       whichOptimMethod(function() return loss_val, gradients end, weights, sgdState)
 
-      -- Display progress
       sgdState.nSampledImages = sgdState.nSampledImages + batchProcessed
       sgdState.nEvalCounter = sgdState.nEvalCounter + 1     -- unused for now
+
+      -- Display progress
       xlua.progress(sgdState.nSampledImages%epochSize, epochSize)
 
       if math.floor(sgdState.nSampledImages / epochSize) ~= sgdState.epochCounter then
@@ -79,7 +87,11 @@ function TrainingHelpers.trainForever(forwardBackwardBatch, weights, sgdState, e
          -- do evaluation
          if afterEpoch then afterEpoch() end
          
-         print("\n\n----- Epoch "..sgdState.epochCounter.." -----")
+         if hasWorkBook then
+           print("\n\n----- Epoch "..sgdState.epochCounter.." ----- ".."Tag: "..workbook.tag)
+         else
+           print("\n\n----- Epoch "..sgdState.epochCounter.." -----")
+         end
          --print(string.format("learning rate is %.4f", sgdState.learningRate))
          print("learning rate is", sgdState.learningRate)
       end
@@ -152,6 +164,7 @@ function TrainingHelpers.printInspection(inspection)
       TrainingHelpers.printLayerInspection(layer, {"output"})
    end
 end
+
 function TrainingHelpers.displayWeights(model)
     local layers = {}
     -- Go through each module and add its weight and its gradient.
@@ -183,7 +196,7 @@ function TrainingHelpers.displayWeights(model)
     end
     -- Plot the result
     -- not working
-   workbook:plot("Layers", layers, {
+    workbook:plot("Layers", layers, {
                    labels={"Layer", "Weights", "Gradients", "Outputs"},
                    customBars=true, errorBars=true,
                    title='Network Weights',

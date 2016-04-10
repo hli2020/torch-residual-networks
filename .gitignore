@@ -6,3 +6,4 @@ cache
 *.dot
 .ipynb*
 *.csv
+nohup.out

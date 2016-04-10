@@ -2,8 +2,7 @@
 Copyright (c) 2016 Michael Wilber
 
 --]]
-
-
+--import pandas as pd
 require 'optim'
 TrainingHelpers = {}
 
@@ -90,7 +89,7 @@ end
 
 
 -- Some other stuff that may be helpful but I need to refactor it
-
+-----------------------------------------------------------------
 function TrainingHelpers.inspectLayer(layer, fields)
    function inspect(x)
       if x then
@@ -153,7 +152,7 @@ function TrainingHelpers.printInspection(inspection)
       TrainingHelpers.printLayerInspection(layer, {"output"})
    end
 end
-function displayWeights(model)
+function TrainingHelpers.displayWeights(model)
     local layers = {}
     -- Go through each module and add its weight and its gradient.
     -- X axis = layer number.
@@ -183,7 +182,7 @@ function displayWeights(model)
         end
     end
     -- Plot the result
-    --
+    -- not working
    workbook:plot("Layers", layers, {
                    labels={"Layer", "Weights", "Gradients", "Outputs"},
                    customBars=true, errorBars=true,

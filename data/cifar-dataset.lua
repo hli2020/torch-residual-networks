@@ -20,6 +20,7 @@ function CIFAR:__init(path, mode, batchSize)
          self.labels[{ {i*10000+1, (i+1)*10000} }] = subset.labels
       end
       self.labels = self.labels + 1
+
    elseif mode == "test" then
       local subset = torch.load(path..'/test_batch.t7', 'ascii')
       self.data = subset.data:t():double()
@@ -50,7 +51,9 @@ function CIFAR:sampleIndices(batch, indices)
                      outputs = torch.zeros(n)
                   }
    batch.outputs:copy(self.labels:index(1, indices))
+   
    if self.mode == "train" then
+      
       batch.inputs:zero()
       for i,index in ipairs(torch.totable(indices)) do
          -- Copy self.data[index] into batch.inputs[i], with
@@ -74,6 +77,7 @@ function CIFAR:sampleIndices(batch, indices)
             input:copy(image.hflip(input))
          end
       end
+
    elseif self.mode=="test" then
       batch.inputs:copy(self.data:index(1, indices))
    end
@@ -101,8 +105,9 @@ function CIFAR:getBatch()
    return batch.inputs, batch.outputs
 end
 
--- cifar = Dataset.CIFAR("/Users/michael/cifar10/cifar-10-batches-t7", "train")
+-- dataTrain = Dataset.CIFAR("/home/hongyang/Desktop/cifar-10-batches-t7", "train", 128)
 -- collectgarbage()
 -- collectgarbage()
--- display=require'display'
--- display.image(cifar:sample(32).inputs)
+-- require 'image'
+-- image.display(dataTrain:sample(32).inputs)
+-- print(dataTrain.size

@@ -25,16 +25,16 @@ local DEBUG = true
 local AWS = false
 
 opt = {
-  batchSize         = 64,
-  iterSize          = 2,
-  Nsize             = 3,
-  dataRoot          = "/home/hongyang/Desktop/cifar-10-batches-t7",
-  --dataRoot	    = "/media/DATADISK/hyli/dataset/cifar-10-batches-t7",
+  batchSize         = 2,
+  iterSize          = 64,
+  Nsize             = 200,
+  --dataRoot          = "/home/hongyang/Desktop/cifar-10-batches-t7",
+  dataRoot	    = "/media/DATADISK/hyli/dataset/cifar-10-batches-t7",
   loadFrom          = "",
   expRootName       = "cifar_ablation",
-  expSuffix         = "local",        -- indicate which machine it's deployed
-  gpuId             = 2,
-  localSaveInterval = 2
+  expSuffix         = "149_no_relu_1202_layer",        -- indicate which machine it's deployed
+  gpuId             = 3,
+  localSaveInterval = 50
 }
 
 opt.note = string.format("N_%d_size_b%d_i%d", opt.Nsize, 

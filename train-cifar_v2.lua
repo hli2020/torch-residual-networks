@@ -21,12 +21,12 @@ local DEBUG = false
 opt = {
   batchSize         = 64,
   iterSize          = 2,
-  Nsize             = 30,
+  Nsize             = 18,
   --dataRoot          = "/home/hongyang/Desktop/cifar-10-batches-t7",
   dataRoot	    = "/media/DATADISK/hyli/dataset/cifar-10-batches-t7",
   loadFrom          = "",
   expRootName       = "cifar_ablation",
-  expSuffix         = "ls139",
+  expSuffix         = "ls149_no_bn_and_relu",
   gpuId             = 1,
   localSaveInterval = 50
 }
@@ -168,7 +168,7 @@ function forwardBackwardBatch(batch)
 
     -- From https://github.com/bgshih/cifar.torch/blob/master/train.lua#L119-L128
     if sgdState.epochCounter < 80 then
-        sgdState.learningRate = 0.1
+        sgdState.learningRate = 0.01
     elseif sgdState.epochCounter < 120 then
         sgdState.learningRate = 0.01
     else

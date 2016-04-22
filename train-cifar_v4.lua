@@ -1,6 +1,3 @@
---[[
-Copyright (c) 2016 Hongyang
---]]
 require 'nn'
 require 'cunn'
 require 'cudnn'
@@ -17,39 +14,75 @@ local nninit = require 'nninit'
 function stop() os.exit() end
 
 --[[
-  v3
+  v4 (exclusively for kevin, for ICSPCC and for PR course project)
+  update: 
+    1. change from Amazon S3 to local savings. lossLog, errorLog still unchanged :(
+        -- save the log in a table (.t7 file) 
+    2. change saving to best model scheme
+
+  usage:
+    type in the terminal:
+            choice a (not recommended): GLOG_logtostderr=1 th train-cifar_v4.lua 2>&1 | tee shit.log 
+            choide b: th train-cifar_v4.lua
 ]]
+
 -- when debug mode is set, some intermediate
 -- results (loss, shape, etc) will appear in the terminal.
-local DEBUG = true
-local AWS = false
+local DEBUG = false
+-- using AWS is good, but make sure the machine is connected to a STABLE connection
+local AWS = true
 
 opt = {
-  batchSize         = 64,
-  iterSize          = 2,
+  batchSize         = 128,
+  iterSize          = 1,
   Nsize             = 3,
-  dataRoot          = "/home/hongyang/Desktop/cifar-10-batches-t7",
+  dataRoot          = "/home/hongyang/dataset/cifar-10-batches-t7",
   --dataRoot	    = "/media/DATADISK/hyli/dataset/cifar-10-batches-t7",
   loadFrom          = "",
   expRootName       = "cifar_ablation",
-  expSuffix         = "local",        -- indicate which machine it's deployed
-  gpuId             = 2,
-  localSaveInterval = 2
+  expSuffix         = "local",
+  -- indicate which machine it's deployed, 'ls139', 'fuck', whatever you like        
+  gpuId             = 1   -- start from 1
+  -- localSaveInterval = 2   -- in unit of epoch, DEPRECATED from v4
 }
 
-opt.note = string.format("N_%d_size_b%d_i%d", opt.Nsize, 
+-- sdg init
+sgdState = {
+   learningRate   = "will be set later",    -- REMEMBER to check the lr_policy below
+   weightDecay    = 0.0001,
+   momentum       = 0.9,
+   dampening      = 0,
+   nesterov       = true,
+   maxEpoch       = 200,
+}
+
+function get_lr(epoch)
+  if epoch < 80 then
+      sgdState.learningRate = 0.1
+  elseif epoch < 120 then
+      sgdState.learningRate = 0.01
+  else
+      sgdState.learningRate = 0.001
+  end
+end
+
+lossLog_local = {}
+errorLog_local = {}
+opt.beginToSave = 50
+bestTop1 = 0
+firstSave = true -- trivial variable
+
+opt.note = string.format("depth_%d_bs%d_is%d", (6*opt.Nsize+2), 
     opt.batchSize, opt.iterSize)
 if expSuffix ~= "" then
   opt.note = opt.note .. "_" .. opt.expSuffix
 end
--- make folder to hold local model results
-os.execute("mkdir -p snapshots/"..opt.expRootName.."/"..opt.note)
 
-print("Training settings:")
-print(opt)
-opt.gpuId = opt.gpuId or 1;
-print("Running on GPU #", opt.gpuId)
-cutorch.setDevice(opt.gpuId)
+if not hasWorkbook then
+  timestamp = os.date("%Y_%m_%d_%H:%M:%S")
+else
+  timestamp = workbook.tag
+end
 
 ------- Feel free to comment these out -------
 ----------------------------------------------
@@ -58,19 +91,25 @@ if AWS then
   hasWorkbook, labWorkbook = pcall(require, 'lab-workbook')  
   if hasWorkbook then  
     workbook = labWorkbook:newExperiment{}
-    lossLog = workbook:newTimeSeriesLog("Training loss", {"nImages", "loss", "lr"}, 200)
-    errorLog = workbook:newTimeSeriesLog("Testing Error", {"nImages", "error"})
+    lossLog = workbook:newTimeSeriesLog("Training loss", {"nImages", "loss", "lr"}, 100)
+    errorLog = workbook:newTimeSeriesLog("Testing Error", {"nImages", "error", "loss_val"})
     workbook:saveGitStatus()
     workbook:saveJSON("opt", opt)
   else
-    print "WARNING: No workbook support. No results will be saved."
+    print "WARNING: No workbook support. No results will be saved in S3."
   end
 end
 ----------------------------------------------
 ----------------------------------------------
--- a = workbook.tag
--- print(a)
--- stop()
+-- make folder to hold local model results
+os.execute("mkdir -p snapshots/"..opt.expRootName.."/"
+  ..opt.note.."/"..timestamp)
+
+print("Training settings:")
+print(opt)
+opt.gpuId = opt.gpuId or 1;
+print("Running on GPU #", opt.gpuId)
+cutorch.setDevice(opt.gpuId)
 
 -- create data loader
 dataTrain = Dataset.CIFAR(opt.dataRoot, "train", opt.batchSize)
@@ -78,6 +117,8 @@ dataTest = Dataset.CIFAR(opt.dataRoot, "test", opt.batchSize)
 local mean,std = dataTrain:preprocess()
 dataTest:preprocess(mean,std)
 print("Training dataset size: ", dataTrain:size())
+print("Testing dataset size: ", dataTest:size())
+print('')
 
 -- Residual network. Define the net in 'model'
 -- Input: 3x32x32
@@ -120,35 +161,26 @@ if opt.loadFrom == "" then
 
     -- got crazy nan outputs if initialized improperly
     local temp = model:forward(torch.randn(100, 3, 32,32):cuda())
-    print("output of random init:")
+    print("output of random init: ")
     print(temp[{ {1}, {} }])
 
     -- save the network in local
     -- TODO: save it to S3
-    graph.dot(model.fg, 'Forward Graph', 'net_architecture')
-    local command = string.format("mv net_architecture.* snapshots/%s/%s", opt.expRootName, opt.note)
+    print('network graph saved (as .svg)!')
+    graph.dot(model.fg, 'Forward Graph', 'network_graph')
+    local command = string.format("mv network_graph.* snapshots/%s/%s/%s", 
+      opt.expRootName, opt.note, timestamp)
     os.execute(command)
-
 else
     print("Loading model from "..opt.loadFrom)
     model = torch.load(opt.loadFrom)
     print "Done"
 end
 
---stop()
+-- stop()
 
 loss = nn.ClassNLLCriterion()
 loss:cuda()
-
--- init
-sgdState = {
-   -- My semi-working settings
-   learningRate   = "will be set later",
-   weightDecay    = 0.0001,
-   momentum       = 0.9,
-   dampening      = 0,
-   nesterov       = true,
-}
 
 if opt.loadFrom ~= "" then
     print("Trying to load sgdState from "..string.gsub(opt.loadFrom, "model", "sgdState"))
@@ -181,15 +213,9 @@ function forwardBackwardBatch(batch)
     --]]
 
     -- From https://github.com/bgshih/cifar.torch/blob/master/train.lua#L119-L128
-    if sgdState.epochCounter < 80 then
-        sgdState.learningRate = 0.1
-    elseif sgdState.epochCounter < 120 then
-        sgdState.learningRate = 0.01
-    else
-        sgdState.learningRate = 0.001
-    end
+    get_lr(sgdState.epochCounter)
 
-    local loss_val = 0
+    local lossTrain = 0
     local N = opt.iterSize
     local inputs, labels
     for i = 1, N do
@@ -200,64 +226,95 @@ function forwardBackwardBatch(batch)
         labels = labels:cuda()
         collectgarbage(); collectgarbage();
         local y = model:forward(inputs)
-        loss_val = loss_val + loss:forward(y, labels)
-
+        lossTrain = lossTrain + loss:forward(y, labels)
         --print('first label is '..labels[1]..'.')
-        --print(y[{{1}, {}}])
-        
+        --print(y[{{1}, {}}])     
         local df_dw = loss:backward(y, labels)
         model:backward(inputs, df_dw)
-        -- The above call will accumulate all GPUs' parameters onto GPU #1
+
     end
-    loss_val = loss_val / N
+    lossTrain = lossTrain / N
     gradients:mul( 1.0 / N )
     
     if DEBUG and (sgdState.nSampledImages%(10*opt.batchSize) ==  0) then 
-        print(string.format('loss is %.3f', loss_val))
+        print(string.format('loss is %.3f', lossTrain))
     end
 
     if hasWorkbook then
-      lossLog{nImages = sgdState.nSampledImages, loss = loss_val, lr = sgdState.learningRate}
+      lossLog{nImages = sgdState.nSampledImages, loss = lossTrain, lr = sgdState.learningRate}
     end
+    table.insert(lossLog_local, {})
+    lossLog_local[#lossLog_local][1] = sgdState.nSampledImages
+    lossLog_local[#lossLog_local][2] = lossTrain
+    lossLog_local[#lossLog_local][3] = sgdState.learningRate
 
     -- the last argument is batchProcessed (aka, nSampledImages in sgd)
-    return loss_val, gradients, inputs:size(1) * N
+    return lossTrain, gradients, inputs:size(1) * N
 end
 
 function evalModel()
 
     local results = evaluateModel(model, dataTest, opt.batchSize)
-    --print(string.format(' * Test accuracy top1: %.3f  top5: %.3f', results.correct1, results.correct5))
-    print(' * Test accuracy top1:', results.correct1)
+    print(' * Current test accuracy top1:', results.correct1)
+    print(string.format(' * Current test loss: %.3f', results.loss_val))
 
     local iter = sgdState.epochCounter
     if hasWorkbook then
-      
       errorLog{ nImages = sgdState.nSampledImages or 0, 
-                error = 1.0 - results.correct1 }
-
+                error = 1.0 - results.correct1, loss_val = results.loss_val }
       -- from v3, we dont save them to s3     
       -- if (iter or -1) % 100 == 0 then
       --   workbook:saveTorch("model", model)
       --   workbook:saveTorch("sgdState", sgdState)
       -- end
     end
+    table.insert(errorLog_local, {})
+    errorLog_local[#errorLog_local][1] = sgdState.nSampledImages
+    errorLog_local[#errorLog_local][2] = 1.0 - results.correct1
+    errorLog_local[#errorLog_local][3] = results.loss_val
 
-    -- save a copy to local
-    if ( iter > 1) and (iter % opt.localSaveInterval == 0) then
-      torch.save(string.format("model_epoch_%d.t7", iter), model)
-      torch.save(string.format("sgdState_epoch_%d.t7", iter), sgdState)
-      os.execute("mv *.t7 snapshots/" .. opt.expRootName .."/".. opt.note)
-      print(' * saving model and optState to local mahine...')
+    -- save the best model to local
+    if ( iter >= opt.beginToSave) then
+
+      if (results.correct1 > bestTop1) then
+
+        bestTop1 = results.correct1
+        bestEpoch = iter
+
+        -- first delete previous best models
+        if firstSave then
+          firstSave = false
+        else
+          os.execute("rm snapshots/" .. opt.expRootName .."/".. opt.note.."/"
+            ..timestamp.."/best_*")
+          os.execute("rm snapshots/" .. opt.expRootName .."/".. opt.note.."/"
+            ..timestamp.."/log_*")
+        end
+
+        torch.save(string.format("best_model_epoch_%d.t7", iter), model)
+        torch.save(string.format("best_sgdState_epoch_%d.t7", iter), sgdState)
+        local LOG = { lossLog_local, errorLog_local }
+        torch.save(string.format("log_train_test_epoch_%d.t7", iter), LOG)
+
+        os.execute("mv *.t7 snapshots/" .. opt.expRootName .."/".. opt.note.."/"..timestamp)
+        print(' * SAVING BEST MODEL (model, optState, log) to local mahine...')
+      end
+
+      print(' * Best top1: '..bestTop1..', at epoch: '..bestEpoch)
     end
-
-    if (sgdState.epochCounter or 0) > 200 then
-        print("Training done! Check the results!")
-        os.exit()
+    
+    if (hasWorkbook and sgdState.epochCounter == opt.beginToSave) then
+      -- only excute once
+      workbook:saveJSON("draw", {})
+    end
+    if (sgdState.epochCounter or 0) >= sgdState.maxEpoch then
+      if hasWorkbook then
+        workbook:saveJSON("done", {})
+      end
+      print("Training done! Check the results!")
+      os.exit()
     end
 end
-
---evalModel()
 
 --[[
 require 'graph'
@@ -267,7 +324,7 @@ display.image(image.load('/tmp/MLP.png'), {title="Network Structure", win=23})
 --]]
 
 -- dataTrain:size() is the epochSize
--- Actual Training! -----------------------------
+--------- Actual Training ----------
 weights, gradients = model:getParameters()
 
 -- some interesting stuff here

@@ -36,6 +36,7 @@ end
 
 function CIFAR:preprocess(mean, std)
    mean = mean or self.data:mean(1)
+   -- print(self.data:std())
    std = std or self.data:std() -- Complete std!
    self.data:add(-mean:expandAs(self.data)):mul(1/std)
    return mean,std

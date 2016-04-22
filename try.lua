@@ -8,6 +8,7 @@ require 'nngraph'
 require 'train-helpers'
 local nninit = require 'nninit'
 
+function stop() os.exit() end
 --opt
 opt = {
   batchSize         = 64,
@@ -23,6 +24,23 @@ opt.note = string.format("N_%d_size_%dx%d_%s", opt.Nsize, opt.batchSize,
 	opt.iterSize, opt.expSuffix)
 print(opt.note)
 print(opt.expSuffix==" ")
+
+i = 1
+log = {}
+while i < 10 do
+	table.insert(log, {})
+	log[#log][1] = 1
+	log[#log][2] = 'fuck'
+	log[#log][3] = 3.4
+	i = i + 1
+end
+
+for _, row in ipairs(log) do
+	print(type(row[1]))
+end
+
+torch.save('fcuk.t7', log, opt)
+stop()
 
 -- h1 = nn.Linear(20, 10)()
 -- h3 = nn.Tanh()(h1)

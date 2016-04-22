@@ -13,33 +13,43 @@ function evaluateModel(model, datasetTest, batchSize)
    local correct5 = 0
    local total = 0
    local batches = torch.range(1, datasetTest:size()):long():split(batchSize)
+   local loss_val = 0
+
    for i=1,#batches do
        collectgarbage(); collectgarbage();
        local results = datasetTest:sampleIndices(nil, batches[i])
        local batch, labels = results.inputs, results.outputs
-       labels = labels:long()
-       local y = model:forward(batch:cuda()):float()
-       local _, indices = torch.sort(y, 2, true)
+       -- print(type(labels))  -- userdata 
+       -- labels = labels:long()
+       -- print(type(lables)) -- nil
+       -- stop()
+       batch = batch:cuda()
+       labels = labels:cuda()
+       local y = model:forward(batch)
+       loss_val = loss_val + loss:forward(y, labels)
+
+       local _, indices = torch.sort(y:float(), 2, true)
        -- indices has shape (batchSize, nClasses)
        local top1 = indices:select(2, 1)
        local top5 = indices:narrow(2, 1,5)
-       correct1 = correct1 + torch.eq(top1, labels):sum()
-       correct5 = correct5 + torch.eq(top5, labels:view(-1, 1):expandAs(top5)):sum()
+       correct1 = correct1 + torch.eq(top1, labels:long()):sum()
+       correct5 = correct5 + torch.eq(top5, labels:long():view(-1, 1):expandAs(top5)):sum()
        total = total + indices:size(1)
        xlua.progress(total, datasetTest:size())
    end
-   return {correct1=correct1/total, correct5=correct5/total}
+   loss_val = loss_val / #batches
+   return {correct1=correct1/total, correct5=correct5/total, loss_val=loss_val}
 end
 
 function TrainingHelpers.trainForever(forwardBackwardBatch, weights, sgdState, epochSize, afterEpoch, hasWorkBook)
-   local d = Date{os.date()}
-   local modelTag = string.format("%04d%02d%02d-%d",
-      d:year(), d:month(), d:day(), torch.random())
+   -- local d = Date{os.date()}
+   -- local modelTag = string.format("%04d%02d%02d-%d",
+   --    d:year(), d:month(), d:day(), torch.random())
 
    sgdState.epochSize = epochSize
    sgdState.epochCounter = sgdState.epochCounter or 0
    sgdState.nSampledImages = sgdState.nSampledImages or 0
-   sgdState.nEvalCounter = sgdState.nEvalCounter or 0
+
    local whichOptimMethod = optim.sgd
    if sgdState.whichOptimMethod then
        whichOptimMethod = optim[sgdState.whichOptimMethod]
@@ -48,51 +58,36 @@ function TrainingHelpers.trainForever(forwardBackwardBatch, weights, sgdState, e
    while true do -- Each epoch
 
       collectgarbage(); collectgarbage()
-
       -- only execute once
       if sgdState.nSampledImages == 0 then
-        
-        if hasWorkBook then
-          print("\n\n----- Epoch "..sgdState.epochCounter.." ----- ".."Tag: "..workbook.tag)
-        else
-          print("\n\n----- Epoch "..sgdState.epochCounter.." -----")
-        end
-        
+        print("\n\n----- Epoch "..(sgdState.epochCounter+1).." ----- ".."Tag: "..timestamp)
       end
 
       -- Run forward and backward pass(iteration) on inputs and labels
-      local loss_val, gradients, batchProcessed = forwardBackwardBatch()
-
+      local lossTrain, gradients, batchProcessed = forwardBackwardBatch()
       -- only execute once
       if sgdState.nSampledImages == 0 then
-        --print(string.format("learning rate is %.4f", sgdState.learningRate))
         print("learning rate is", sgdState.learningRate)
       end
 
       -- SGD step: modifies weights in-place
-      whichOptimMethod(function() return loss_val, gradients end, weights, sgdState)
+      whichOptimMethod(function() return lossTrain, gradients end, weights, sgdState)
 
       sgdState.nSampledImages = sgdState.nSampledImages + batchProcessed
-      sgdState.nEvalCounter = sgdState.nEvalCounter + 1     -- unused for now
-
       -- Display progress
       xlua.progress(sgdState.nSampledImages%epochSize, epochSize)
 
       if math.floor(sgdState.nSampledImages / epochSize) ~= sgdState.epochCounter then
          -- Epoch completed!
          xlua.progress(epochSize, epochSize)
-         print(string.format(' * Training Loss is: %.3f', loss_val))
+         print(string.format(' * Training Loss is: %.3f', lossTrain))
          sgdState.epochCounter = math.floor(sgdState.nSampledImages / epochSize)
          
          -- do evaluation
          if afterEpoch then afterEpoch() end
-         
-         if hasWorkBook then
-           print("\n\n----- Epoch "..sgdState.epochCounter.." ----- ".."Tag: "..workbook.tag)
-         else
-           print("\n\n----- Epoch "..sgdState.epochCounter.." -----")
-         end
-         --print(string.format("learning rate is %.4f", sgdState.learningRate))
+
+         -- show NEXT epoch
+         print("\n\n----- Epoch "..(sgdState.epochCounter+1).." ----- ".."Tag: "..timestamp)
          print("learning rate is", sgdState.learningRate)
       end
 

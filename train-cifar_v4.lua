@@ -68,7 +68,7 @@ end
 
 lossLog_local = {}
 errorLog_local = {}
-opt.beginToSave = 1
+opt.beginToSave = 50
 bestTop1 = 0
 firstSave = true -- trivial variable
 

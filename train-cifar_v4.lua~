@@ -28,14 +28,14 @@ function stop() os.exit() end
 
 -- when debug mode is set, some intermediate
 -- results (loss, shape, etc) will appear in the terminal.
-local DEBUG = false
+local DEBUG = true
 -- using AWS is good, but make sure the machine is connected to a STABLE connection
 local AWS = true
 
 opt = {
-  batchSize         = 64,
-  iterSize          = 2,
-  Nsize             = 3,
+  batchSize         = 128,
+  iterSize          = 1,
+  Nsize             = 33, --18
   dataRoot          = "/home/zhizhen/cifar10torchsmall/cifar-10-batches-t7",
   --dataRoot	    = "/media/DATADISK/hyli/dataset/cifar-10-batches-t7",
   loadFrom          = "",
@@ -58,11 +58,11 @@ sgdState = {
 
 function get_lr(epoch)
   if epoch < 80 then
-      sgdState.learningRate = 0.1
+      sgdState.learningRate = 0.05
   elseif epoch < 120 then
-      sgdState.learningRate = 0.01
+      sgdState.learningRate = 0.005
   else
-      sgdState.learningRate = 0.001
+      sgdState.learningRate = 0.0005
   end
 end
 

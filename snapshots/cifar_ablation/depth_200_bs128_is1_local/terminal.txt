@@ -1,0 +1,7 @@
+ * Training Loss is: 0.000	
+Evaluating...	
+ [==================== 10000/10000 ============>]  Tot: 26s25ms | Step: 2ms     
+ * Current test accuracy top1:	0.9361	
+ * Current test loss: 0.332	
+ * Best top1: 0.9379, at epoch: 169	
+

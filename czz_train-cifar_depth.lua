@@ -66,7 +66,7 @@ local AWS = false
 opt = {
   batchSize         = 128,
   iterSize          = 1,
-  Nsize             = 3,
+  Nsize             = 18,
   dataRoot          = "/home/zhizhen/cifar10torchsmall/cifar-10-batches-t7",
   --dataRoot	    = "/media/DATADISK/hyli/dataset/cifar-10-batches-t7",
   loadFrom          = "",
@@ -99,7 +99,7 @@ end
 
 lossLog_local = {}
 errorLog_local = {}
-opt.beginToSave = 1
+opt.beginToSave = 50
 bestTop1 = 0
 firstSave = true -- trivial variable
 

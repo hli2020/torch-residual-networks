@@ -39,6 +39,9 @@ function DataLoader:__init(dataset, opt, split)
    end
 
    local threads, sizes = Threads(opt.nThreads, init, main)
+   -- if (split == 'train') then
+   --    print(sizes[1][1])
+   -- end
    self.nCrops = (split == 'val' and opt.tenCrop) and 10 or 1
    self.threads = threads
    self.__size = sizes[1][1]

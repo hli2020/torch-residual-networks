@@ -5,3 +5,5 @@ cache
 *.svg
 *.dot
 .ipynb*
+nohup.out
+*.log

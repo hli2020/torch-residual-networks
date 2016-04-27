@@ -66,9 +66,10 @@ local AWS = false
 opt = {
   batchSize         = 128,
   iterSize          = 1,
-  Nsize             = 3,
-  dataRoot          = "/home/zhizhen/cifar10torchsmall/cifar-10-batches-t7",
+  Nsize             = 18, --3,
+  -- dataRoot          = "/home/zhizhen/cifar10torchsmall/cifar-10-batches-t7",
   --dataRoot	    = "/media/DATADISK/hyli/dataset/cifar-10-batches-t7",
+  dataRoot          = "/home/hongyang/dataset/cifar-10-batches-t7",
   loadFrom          = "",
   expRootName       = "cifar_ablation",
   expSuffix         = "local",
@@ -197,11 +198,11 @@ if opt.loadFrom == "" then
 
     -- save the network in local
     -- TODO: save it to S3
-    --print('network graph saved (as .svg)!')
-    --graph.dot(model.fg, 'Forward Graph', 'network_graph')
-    --local command = string.format("mv network_graph.* snapshots/%s/%s/%s", 
-    --  opt.expRootName, opt.note, timestamp)
-    --os.execute(command)
+    print('network graph saved (as .svg)!')
+    graph.dot(model.fg, 'Forward Graph', 'network_graph')
+    local command = string.format("mv network_graph.* snapshots/%s/%s/%s", 
+     opt.expRootName, opt.note, timestamp)
+    os.execute(command)
 else
     print("Loading model from "..opt.loadFrom)
     model = torch.load(opt.loadFrom)

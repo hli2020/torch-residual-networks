@@ -25,42 +25,42 @@ opt.note = string.format("N_%d_size_%dx%d_%s", opt.Nsize, opt.batchSize,
 print(opt.note)
 print(opt.expSuffix==" ")
 
-i = 1
-log = {}
-while i < 10 do
-	table.insert(log, {})
-	log[#log][1] = 1
-	log[#log][2] = 'fuck'
-	log[#log][3] = 3.4
-	i = i + 1
-end
+-- i = 1
+-- log = {}
+-- while i < 10 do
+-- 	table.insert(log, {})
+-- 	log[#log][1] = 1
+-- 	log[#log][2] = 'fuck'
+-- 	log[#log][3] = 3.4
+-- 	i = i + 1
+-- end
 
-for _, row in ipairs(log) do
-	print(type(row[1]))
-end
+-- for _, row in ipairs(log) do
+-- 	print(type(row[1]))
+-- end
 
-torch.save('fcuk.t7', {log, opt})
-stop()
+-- torch.save('fcuk.t7', {log, opt})
+-- stop()
 
 -- the following fails, don't know why
 -- test = torch.load('fcuhk.t7')
 
--- h1 = nn.Linear(20, 10)()
--- h3 = nn.Tanh()(h1)
--- h4 = nn.Linear(10, 10)(h3)
--- h5 = nn.Tanh()(h4)
--- h2 = nn.Linear(10, 1)(h5)
--- --h2 = nn.Linear(10, 1)(nn.Tanh()(nn.Linear(10, 10)(nn.Tanh()(h1))))
--- mlp = nn.gModule({h1}, {h2})
+h1 = nn.Linear(20, 10)()
+h3 = nn.Tanh()(h1)
+h4 = nn.Linear(10, 10)(h3)
+h5 = nn.Tanh()(h4)
+h2 = nn.Linear(10, 1)(h5)
+--h2 = nn.Linear(10, 1)(nn.Tanh()(nn.Linear(10, 10)(nn.Tanh()(h1))))
+mlp = nn.gModule({h1}, {h2})
 
--- x = torch.rand(20)
--- dx = torch.rand(1)
--- mlp:updateOutput(x)
--- mlp:updateGradInput(x, dx)
--- mlp:accGradParameters(x, dx)
+x = torch.rand(20)
+dx = torch.rand(1)
+mlp:updateOutput(x)
+mlp:updateGradInput(x, dx)
+mlp:accGradParameters(x, dx)
 
--- -- draw graph (the forward graph, '.fg')
--- graph.dot(mlp.fg, 'MLP')
+-- draw graph (the forward graph, '.fg')
+graph.dot(mlp.fg, 'MLP', 'dfdf')
 
 
 -- h1 = nn.Linear(20, 20)()

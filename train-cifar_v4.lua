@@ -13,6 +13,37 @@ local nninit = require 'nninit'
 --nngraph.setDebug(true)
 function stop() os.exit() end
 
+-- hyli: new here, will be moved into modules in future update
+function escapeCSV (s)
+  if string.find(s, '[,"]') then
+    s = '"' .. string.gsub(s, '"', '""') .. '"'
+  end
+  return s
+end
+
+function toCSV (tt)
+  local s = ""
+-- ChM 23.02.2014: changed pairs to ipairs 
+-- assumption is that fromCSV and toCSV maintain data as ordered array
+  for _,p in ipairs(tt) do  
+    s = s .. "," .. escapeCSV(p)
+  end
+  return string.sub(s, 2)      -- remove first comma
+end
+
+function saveToCSV(log, name)
+  -- log is a table
+  -- assert(log ~= nil)
+  -- print('passed!')
+  fid = io.open(name..'.csv', "w")
+  for _, row in ipairs(log) do
+    fid:write(toCSV(row))
+  end
+  fid:close()
+  os.execute("mv *.csv snapshots/" .. opt.expRootName .."/".. opt.note.."/"..timestamp)
+end
+----------
+
 --[[
   v4 (exclusively for kevin, for ICSPCC and for PR course project)
   update: 
@@ -30,7 +61,7 @@ function stop() os.exit() end
 -- results (loss, shape, etc) will appear in the terminal.
 local DEBUG = false
 -- using AWS is good, but make sure the machine is connected to a STABLE connection
-local AWS = true
+local AWS = false
 
 opt = {
   batchSize         = 128,
@@ -68,7 +99,7 @@ end
 
 lossLog_local = {}
 errorLog_local = {}
-opt.beginToSave = 50
+opt.beginToSave = 1
 bestTop1 = 0
 firstSave = true -- trivial variable
 
@@ -247,6 +278,7 @@ function forwardBackwardBatch(batch)
     lossLog_local[#lossLog_local][1] = sgdState.nSampledImages
     lossLog_local[#lossLog_local][2] = lossTrain
     lossLog_local[#lossLog_local][3] = sgdState.learningRate
+    lossLog_local[#lossLog_local][4] = "\n"
 
     -- the last argument is batchProcessed (aka, nSampledImages in sgd)
     return lossTrain, gradients, inputs:size(1) * N
@@ -272,6 +304,7 @@ function evalModel()
     errorLog_local[#errorLog_local][1] = sgdState.nSampledImages
     errorLog_local[#errorLog_local][2] = 1.0 - results.correct1
     errorLog_local[#errorLog_local][3] = results.loss_val
+    errorLog_local[#errorLog_local][4] = "\n"
 
     -- save the best model to local
     if ( iter >= opt.beginToSave) then
@@ -287,16 +320,19 @@ function evalModel()
         else
           os.execute("rm snapshots/" .. opt.expRootName .."/".. opt.note.."/"
             ..timestamp.."/best_*")
-          os.execute("rm snapshots/" .. opt.expRootName .."/".. opt.note.."/"
-            ..timestamp.."/log_*")
         end
 
         torch.save(string.format("best_model_epoch_%d.t7", iter), model)
         torch.save(string.format("best_sgdState_epoch_%d.t7", iter), sgdState)
-        local LOG = { lossLog_local, errorLog_local }
-        torch.save(string.format("log_train_test_epoch_%d.t7", iter), LOG)
-
         os.execute("mv *.t7 snapshots/" .. opt.expRootName .."/".. opt.note.."/"..timestamp)
+        -- torch.save(string.format("log_train_test_epoch_%d.t7", iter), LOG)
+        -- fid = torch.DiskFile(string.format("log_train_test_epoch_%d.t7", iter), 'w')
+        -- fid:writeObject(LOG)
+        -- fid:close()
+        -- assert(lossLog_local ~= nil)
+        saveToCSV(lossLog_local, 'train_loss')
+        saveToCSV(errorLog_local, 'test_error')
+
         print(' * SAVING BEST MODEL (model, optState, log) to local mahine...')
       end
 
@@ -311,6 +347,9 @@ function evalModel()
       if hasWorkbook then
         workbook:saveJSON("done", {})
       end
+
+      saveToCSV(lossLog_local, 'train_loss')
+      saveToCSV(errorLog_local, 'test_error')
       print("Training done! Check the results!")
       os.exit()
     end

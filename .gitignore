@@ -7,3 +7,5 @@ cache
 .ipynb*
 *.csv
 nohup.out
+*.txt~
+*.lua~

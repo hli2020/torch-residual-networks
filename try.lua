@@ -39,8 +39,11 @@ for _, row in ipairs(log) do
 	print(type(row[1]))
 end
 
-torch.save('fcuk.t7', log, opt)
+torch.save('fcuk.t7', {log, opt})
 stop()
+
+-- the following fails, don't know why
+-- test = torch.load('fcuhk.t7')
 
 -- h1 = nn.Linear(20, 10)()
 -- h3 = nn.Tanh()(h1)

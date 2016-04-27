@@ -66,7 +66,7 @@ opt = {
   plain_net         = true,       
   batchSize         = 128,
   iterSize          = 1,
-  Nsize             = 18, --3, --18
+  Nsize             = 33, --3, --18
   -- dataRoot          = "/home/zhizhen/cifar10torchsmall/cifar-10-batches-t7",
   dataRoot          = "/home/hongyang/dataset/cifar-10-batches-t7",
   -- dataRoot	    = "/media/DATADISK/hyli/dataset/cifar-10-batches-t7",
@@ -90,7 +90,7 @@ sgdState = {
 
 function get_lr(epoch)
   if epoch < 80 then
-      sgdState.learningRate = opt.Nsize == 33 and 0.5 or 0.1
+      sgdState.learningRate = opt.Nsize == 33 and 0.05 or 0.1
   elseif epoch < 120 then
       sgdState.learningRate = opt.Nsize == 33 and 0.005 or 0.01
   else

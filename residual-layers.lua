@@ -76,11 +76,12 @@ function addResidualLayer2(input,  nChannels, nOutChannels, stride)
 
      -- Add them together                                         
      net = nn.CAddTable(){net, skip}
-
-     if opt.Nsize == 33 then
-        net = cudnn.ReLU(true)(net)
-     end
+     -- net = cudnn.ReLU(true)(net)
      -- ^ don't put a ReLU here! see http://gitxiv.com/comments/7rffyqcPLirEEsmpX
+   else
+      if opt.Nsize == 33 then
+        net = cudnn.ReLU(true)(net)
+      end
    end
    
    return net

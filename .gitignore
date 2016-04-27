@@ -1,6 +1,7 @@
 *.t7
 mnist.hdf5
 *.swp
+*.gitignore~
 cache
 *.svg
 *.dot

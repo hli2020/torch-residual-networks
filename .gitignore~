@@ -5,7 +5,6 @@ cache
 *.svg
 *.dot
 .ipynb*
-*.csv
 nohup.out
 *.txt~
 *.lua~

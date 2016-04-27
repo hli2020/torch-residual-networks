@@ -55,28 +55,28 @@ function addResidualLayer2(input,  nChannels, nOutChannels, stride)
    -- implies that they don't use it here
 
    -- Path 2: Identity / skip connection
-   local skip = input
-   if stride > 1 then
+   --local skip = input
+   --if stride > 1 then
        -- optional downsampling
-       skip = nn.SpatialAveragePooling(1, 1, stride,stride)(skip)
-   end
-   if nOutChannels > nChannels then
+       --skip = nn.SpatialAveragePooling(1, 1, stride,stride)(skip)
+   --end
+   --if nOutChannels > nChannels then
        -- optional padding
-       skip = nn.Padding(1, (nOutChannels - nChannels), 3)(skip)
+       --skip = nn.Padding(1, (nOutChannels - nChannels), 3)(skip)
        --skip = nn.Padding(2, (nOutChannels - nChannels))(skip)
-   elseif nOutChannels < nChannels then
+   --elseif nOutChannels < nChannels then
        -- optional narrow, ugh.
-       skip = nn.Narrow(2, 1, nOutChannels)(skip)
+       --skip = nn.Narrow(2, 1, nOutChannels)(skip)
        -- NOTE this BREAKS with non-batch inputs!!
-   end
+   --end
 
 --   net = nn.CAddTable(){net, skip}
 
    -- Add them together
-   net = cudnn.SpatialBatchNormalization(nOutChannels)
-                                            :init('weight', nninit.normal, 1, 0.002)
-                                            :init('bias', nninit.constant, 0)(net)
-   net = nn.CAddTable(){net, skip}
+   --net = cudnn.SpatialBatchNormalization(nOutChannels)
+                                            --:init('weight', nninit.normal, 1, 0.002)
+                                            --:init('bias', nninit.constant, 0)(net)
+   --net = nn.CAddTable(){net, skip}
 
    -- net = cudnn.ReLU(true)(net)
    -- ^ don't put a ReLU here! see http://gitxiv.com/comments/7rffyqcPLirEEsmpX

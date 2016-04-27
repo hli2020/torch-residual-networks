@@ -40,7 +40,7 @@ function saveToCSV(log, name)
     fid:write(toCSV(row))
   end
   fid:close()
-  os.execute("mv *.csv snapshots/" .. opt.expRootName .."/".. opt.note.."/"..timestamp)
+  os.execute("mv *.csv RMSprop_snapshots/" .. opt.expRootName .."/".. opt.note.."/"..timestamp)
 end
 ----------
 
@@ -59,14 +59,14 @@ end
 
 -- when debug mode is set, some intermediate
 -- results (loss, shape, etc) will appear in the terminal.
-local DEBUG = true
+local DEBUG = false
 -- using AWS is good, but make sure the machine is connected to a STABLE connection
 local AWS = false
 
 opt = {
   batchSize         = 128,
   iterSize          = 1,
-  Nsize             = 33, --18
+  Nsize             = 18,
   dataRoot          = "/home/zhizhen/cifar10torchsmall/cifar-10-batches-t7",
   --dataRoot	    = "/media/DATADISK/hyli/dataset/cifar-10-batches-t7",
   loadFrom          = "",
@@ -79,27 +79,25 @@ opt = {
 
 -- sdg init
 sgdState = {
-   learningRate   = "will be set later",    -- REMEMBER to check the lr_policy below
-   weightDecay    = 0.0001,
-   momentum       = 0.9,
-   dampening      = 0,
-   nesterov       = true,
-   maxEpoch       = 200,
+   learningRate     = "will be set later",    -- REMEMBER to check the lr_policy below
+   alpha            = 0.9,
+   whichOptimMethod = 'rmsprop',
+   maxEpoch         = 200,
 }
 
 function get_lr(epoch)
   if epoch < 80 then
-      sgdState.learningRate = 0.05
+      sgdState.learningRate = 0.1
   elseif epoch < 120 then
-      sgdState.learningRate = 0.005
+      sgdState.learningRate = 0.01
   else
-      sgdState.learningRate = 0.0005
+      sgdState.learningRate = 0.001
   end
 end
 
 lossLog_local = {}
 errorLog_local = {}
-opt.beginToSave = 1
+opt.beginToSave = 50
 bestTop1 = 0
 firstSave = true -- trivial variable
 
@@ -133,7 +131,7 @@ end
 ----------------------------------------------
 ----------------------------------------------
 -- make folder to hold local model results
-os.execute("mkdir -p snapshots/"..opt.expRootName.."/"
+os.execute("mkdir -p RMSprop_snapshots/"..opt.expRootName.."/"
   ..opt.note.."/"..timestamp)
 
 print("Training settings:")
@@ -198,8 +196,8 @@ if opt.loadFrom == "" then
     -- save the network in local
     -- TODO: save it to S3
     --print('network graph saved (as .svg)!')
-    --raph.dot(model.fg, 'Forward Graph', 'network_graph')
-    --local command = string.format("mv network_graph.* snapshots/%s/%s/%s", 
+    --graph.dot(model.fg, 'Forward Graph', 'network_graph')
+    --local command = string.format("mv network_graph.* RMSprop_snapshots/%s/%s/%s", 
     --  opt.expRootName, opt.note, timestamp)
     --os.execute(command)
 else
@@ -315,27 +313,16 @@ function evalModel()
         bestEpoch = iter
 
         -- first delete previous best models
-<<<<<<< HEAD
-        --if firstSave then
-        --  firstSave = false
-        --else
-        --  os.execute("rm snapshots/" .. opt.expRootName .."/".. opt.note.."/"
-        --    ..timestamp.."/best_*")
-        --  os.execute("rm snapshots/" .. opt.expRootName .."/".. opt.note.."/"
-        --    ..timestamp.."/log_*")
-        --end
-=======
         if firstSave then
           firstSave = false
         else
-          os.execute("rm snapshots/" .. opt.expRootName .."/".. opt.note.."/"
+          os.execute("rm RMSprop_snapshots/" .. opt.expRootName .."/".. opt.note.."/"
             ..timestamp.."/best_*")
         end
->>>>>>> 82446bbd985180476b4578e8d54fdeb5cd5f060c
 
         torch.save(string.format("best_model_epoch_%d.t7", iter), model)
         torch.save(string.format("best_sgdState_epoch_%d.t7", iter), sgdState)
-        os.execute("mv *.t7 snapshots/" .. opt.expRootName .."/".. opt.note.."/"..timestamp)
+        os.execute("mv *.t7 RMSprop_snapshots/" .. opt.expRootName .."/".. opt.note.."/"..timestamp)
         -- torch.save(string.format("log_train_test_epoch_%d.t7", iter), LOG)
         -- fid = torch.DiskFile(string.format("log_train_test_epoch_%d.t7", iter), 'w')
         -- fid:writeObject(LOG)

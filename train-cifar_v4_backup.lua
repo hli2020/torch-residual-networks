@@ -59,14 +59,14 @@ end
 
 -- when debug mode is set, some intermediate
 -- results (loss, shape, etc) will appear in the terminal.
-local DEBUG = true
+local DEBUG = false
 -- using AWS is good, but make sure the machine is connected to a STABLE connection
 local AWS = false
 
 opt = {
   batchSize         = 128,
   iterSize          = 1,
-  Nsize             = 33, --18
+  Nsize             = 3,
   dataRoot          = "/home/zhizhen/cifar10torchsmall/cifar-10-batches-t7",
   --dataRoot	    = "/media/DATADISK/hyli/dataset/cifar-10-batches-t7",
   loadFrom          = "",
@@ -89,11 +89,11 @@ sgdState = {
 
 function get_lr(epoch)
   if epoch < 80 then
-      sgdState.learningRate = 0.05
+      sgdState.learningRate = 0.1
   elseif epoch < 120 then
-      sgdState.learningRate = 0.005
+      sgdState.learningRate = 0.01
   else
-      sgdState.learningRate = 0.0005
+      sgdState.learningRate = 0.001
   end
 end
 
@@ -198,7 +198,7 @@ if opt.loadFrom == "" then
     -- save the network in local
     -- TODO: save it to S3
     --print('network graph saved (as .svg)!')
-    --raph.dot(model.fg, 'Forward Graph', 'network_graph')
+    --graph.dot(model.fg, 'Forward Graph', 'network_graph')
     --local command = string.format("mv network_graph.* snapshots/%s/%s/%s", 
     --  opt.expRootName, opt.note, timestamp)
     --os.execute(command)
@@ -315,23 +315,12 @@ function evalModel()
         bestEpoch = iter
 
         -- first delete previous best models
-<<<<<<< HEAD
-        --if firstSave then
-        --  firstSave = false
-        --else
-        --  os.execute("rm snapshots/" .. opt.expRootName .."/".. opt.note.."/"
-        --    ..timestamp.."/best_*")
-        --  os.execute("rm snapshots/" .. opt.expRootName .."/".. opt.note.."/"
-        --    ..timestamp.."/log_*")
-        --end
-=======
         if firstSave then
           firstSave = false
         else
           os.execute("rm snapshots/" .. opt.expRootName .."/".. opt.note.."/"
             ..timestamp.."/best_*")
         end
->>>>>>> 82446bbd985180476b4578e8d54fdeb5cd5f060c
 
         torch.save(string.format("best_model_epoch_%d.t7", iter), model)
         torch.save(string.format("best_sgdState_epoch_%d.t7", iter), sgdState)

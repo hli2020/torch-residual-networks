@@ -1,0 +1,1839 @@
+----- Epoch 1 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 22s434ms | Step: 0ms    
+ * Training Loss is: 0.885	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 1s863ms | Step: 0ms     
+ * Current test accuracy top1:	0.607	
+ * Current test loss: 1.089	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.607, at epoch: 1	
+
+
+----- Epoch 2 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 21s583ms | Step: 0ms    
+ * Training Loss is: 0.823	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 1s849ms | Step: 0ms     
+ * Current test accuracy top1:	0.7029	
+ * Current test loss: 0.866	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.7029, at epoch: 2	
+
+
+----- Epoch 3 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 22s494ms | Step: 0ms    
+ * Training Loss is: 0.676	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 1s907ms | Step: 0ms     
+ * Current test accuracy top1:	0.7535	
+ * Current test loss: 0.719	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.7535, at epoch: 3	
+
+
+----- Epoch 4 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s781ms | Step: 0ms    
+ * Training Loss is: 0.569	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 1s960ms | Step: 0ms     
+ * Current test accuracy top1:	0.7576	
+ * Current test loss: 0.702	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.7576, at epoch: 4	
+
+
+----- Epoch 5 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s643ms | Step: 0ms    
+ * Training Loss is: 0.532	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 1s971ms | Step: 0ms     
+ * Current test accuracy top1:	0.786	
+ * Current test loss: 0.622	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.786, at epoch: 5	
+
+
+----- Epoch 6 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s809ms | Step: 0ms    
+ * Training Loss is: 0.535	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 1s984ms | Step: 0ms     
+ * Current test accuracy top1:	0.7743	
+ * Current test loss: 0.662	
+ * Best top1: 0.786, at epoch: 5	
+
+
+----- Epoch 7 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s959ms | Step: 0ms    
+ * Training Loss is: 0.546	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 1s931ms | Step: 0ms     
+ * Current test accuracy top1:	0.7991	
+ * Current test loss: 0.597	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.7991, at epoch: 7	
+
+
+----- Epoch 8 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s639ms | Step: 0ms    
+ * Training Loss is: 0.378	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s8ms | Step: 0ms       
+ * Current test accuracy top1:	0.7846	
+ * Current test loss: 0.658	
+ * Best top1: 0.7991, at epoch: 7	
+
+
+----- Epoch 9 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 24s221ms | Step: 0ms    
+ * Training Loss is: 0.366	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 1s971ms | Step: 0ms     
+ * Current test accuracy top1:	0.7919	
+ * Current test loss: 0.636	
+ * Best top1: 0.7991, at epoch: 7	
+
+
+----- Epoch 10 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s834ms | Step: 0ms    
+ * Training Loss is: 0.333	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 1s952ms | Step: 0ms     
+ * Current test accuracy top1:	0.8245	
+ * Current test loss: 0.522	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.8245, at epoch: 10	
+
+
+----- Epoch 11 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s782ms | Step: 0ms    
+ * Training Loss is: 0.598	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s42ms | Step: 0ms      
+ * Current test accuracy top1:	0.8068	
+ * Current test loss: 0.611	
+ * Best top1: 0.8245, at epoch: 10	
+
+
+----- Epoch 12 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 24s43ms | Step: 0ms     
+ * Training Loss is: 0.359	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s45ms | Step: 0ms      
+ * Current test accuracy top1:	0.8337	
+ * Current test loss: 0.474	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.8337, at epoch: 12	
+
+
+----- Epoch 13 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s727ms | Step: 0ms    
+ * Training Loss is: 0.441	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s36ms | Step: 0ms      
+ * Current test accuracy top1:	0.8251	
+ * Current test loss: 0.560	
+ * Best top1: 0.8337, at epoch: 12	
+
+
+----- Epoch 14 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s686ms | Step: 0ms    
+ * Training Loss is: 0.363	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s58ms | Step: 0ms      
+ * Current test accuracy top1:	0.7663	
+ * Current test loss: 0.710	
+ * Best top1: 0.8337, at epoch: 12	
+
+
+----- Epoch 15 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s547ms | Step: 0ms    
+ * Training Loss is: 0.438	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 1s964ms | Step: 0ms     
+ * Current test accuracy top1:	0.832	
+ * Current test loss: 0.539	
+ * Best top1: 0.8337, at epoch: 12	
+
+
+----- Epoch 16 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s592ms | Step: 0ms    
+ * Training Loss is: 0.366	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s41ms | Step: 0ms      
+ * Current test accuracy top1:	0.8345	
+ * Current test loss: 0.500	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.8345, at epoch: 16	
+
+
+----- Epoch 17 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s602ms | Step: 0ms    
+ * Training Loss is: 0.418	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s56ms | Step: 0ms      
+ * Current test accuracy top1:	0.828	
+ * Current test loss: 0.506	
+ * Best top1: 0.8345, at epoch: 16	
+
+
+----- Epoch 18 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s589ms | Step: 0ms    
+ * Training Loss is: 0.451	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s71ms | Step: 0ms      
+ * Current test accuracy top1:	0.8427	
+ * Current test loss: 0.479	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.8427, at epoch: 18	
+
+
+----- Epoch 19 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s683ms | Step: 0ms    
+ * Training Loss is: 0.349	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s27ms | Step: 0ms      
+ * Current test accuracy top1:	0.8537	
+ * Current test loss: 0.442	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.8537, at epoch: 19	
+
+
+----- Epoch 20 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s955ms | Step: 0ms    
+ * Training Loss is: 0.352	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 1s993ms | Step: 0ms     
+ * Current test accuracy top1:	0.8524	
+ * Current test loss: 0.445	
+ * Best top1: 0.8537, at epoch: 19	
+
+
+----- Epoch 21 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s794ms | Step: 0ms    
+ * Training Loss is: 0.322	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s60ms | Step: 0ms      
+ * Current test accuracy top1:	0.8462	
+ * Current test loss: 0.484	
+ * Best top1: 0.8537, at epoch: 19	
+
+
+----- Epoch 22 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 24s87ms | Step: 0ms     
+ * Training Loss is: 0.305	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s60ms | Step: 0ms      
+ * Current test accuracy top1:	0.8505	
+ * Current test loss: 0.461	
+ * Best top1: 0.8537, at epoch: 19	
+
+
+----- Epoch 23 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 24s946ms | Step: 0ms    
+ * Training Loss is: 0.232	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 1s974ms | Step: 0ms     
+ * Current test accuracy top1:	0.8397	
+ * Current test loss: 0.475	
+ * Best top1: 0.8537, at epoch: 19	
+
+
+----- Epoch 24 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 25s120ms | Step: 0ms    
+ * Training Loss is: 0.337	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 1s978ms | Step: 0ms     
+ * Current test accuracy top1:	0.8522	
+ * Current test loss: 0.445	
+ * Best top1: 0.8537, at epoch: 19	
+
+
+----- Epoch 25 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 24s580ms | Step: 0ms    
+ * Training Loss is: 0.331	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 1s963ms | Step: 0ms     
+ * Current test accuracy top1:	0.8358	
+ * Current test loss: 0.516	
+ * Best top1: 0.8537, at epoch: 19	
+
+
+----- Epoch 26 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s760ms | Step: 0ms    
+ * Training Loss is: 0.263	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 1s970ms | Step: 0ms     
+ * Current test accuracy top1:	0.8589	
+ * Current test loss: 0.427	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.8589, at epoch: 26	
+
+
+----- Epoch 27 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s837ms | Step: 0ms    
+ * Training Loss is: 0.416	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 1s965ms | Step: 0ms     
+ * Current test accuracy top1:	0.8584	
+ * Current test loss: 0.439	
+ * Best top1: 0.8589, at epoch: 26	
+
+
+----- Epoch 28 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s800ms | Step: 0ms    
+ * Training Loss is: 0.514	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s14ms | Step: 0ms      
+ * Current test accuracy top1:	0.8479	
+ * Current test loss: 0.458	
+ * Best top1: 0.8589, at epoch: 26	
+
+
+----- Epoch 29 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s856ms | Step: 0ms    
+ * Training Loss is: 0.357	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 1s966ms | Step: 0ms     
+ * Current test accuracy top1:	0.8579	
+ * Current test loss: 0.425	
+ * Best top1: 0.8589, at epoch: 26	
+
+
+----- Epoch 30 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s817ms | Step: 0ms    
+ * Training Loss is: 0.257	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s29ms | Step: 0ms      
+ * Current test accuracy top1:	0.852	
+ * Current test loss: 0.448	
+ * Best top1: 0.8589, at epoch: 26	
+
+
+----- Epoch 31 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s993ms | Step: 0ms    
+ * Training Loss is: 0.153	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s3ms | Step: 0ms       
+ * Current test accuracy top1:	0.8601	
+ * Current test loss: 0.431	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.8601, at epoch: 31	
+
+
+----- Epoch 32 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s831ms | Step: 0ms    
+ * Training Loss is: 0.309	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s23ms | Step: 0ms      
+ * Current test accuracy top1:	0.8542	
+ * Current test loss: 0.471	
+ * Best top1: 0.8601, at epoch: 31	
+
+
+----- Epoch 33 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 25s211ms | Step: 0ms    
+ * Training Loss is: 0.267	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s4ms | Step: 0ms       
+ * Current test accuracy top1:	0.8549	
+ * Current test loss: 0.463	
+ * Best top1: 0.8601, at epoch: 31	
+
+
+----- Epoch 34 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 24s19ms | Step: 0ms     
+ * Training Loss is: 0.299	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s38ms | Step: 0ms      
+ * Current test accuracy top1:	0.8526	
+ * Current test loss: 0.463	
+ * Best top1: 0.8601, at epoch: 31	
+
+
+----- Epoch 35 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s984ms | Step: 0ms    
+ * Training Loss is: 0.196	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 1s998ms | Step: 0ms     
+ * Current test accuracy top1:	0.8659	
+ * Current test loss: 0.408	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.8659, at epoch: 35	
+
+
+----- Epoch 36 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 24s66ms | Step: 0ms     
+ * Training Loss is: 0.266	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s52ms | Step: 0ms      
+ * Current test accuracy top1:	0.8716	
+ * Current test loss: 0.391	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.8716, at epoch: 36	
+
+
+----- Epoch 37 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 23s964ms | Step: 0ms    
+ * Training Loss is: 0.300	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s46ms | Step: 0ms      
+ * Current test accuracy top1:	0.8679	
+ * Current test loss: 0.421	
+ * Best top1: 0.8716, at epoch: 36	
+
+......
+
+----- Epoch 73 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 25s35ms | Step: 0ms     
+ * Training Loss is: 0.229	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s165ms | Step: 0ms     
+ * Current test accuracy top1:	0.8622	
+ * Current test loss: 0.436	
+ * Best top1: 0.876, at epoch: 60	
+
+
+----- Epoch 74 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 25s95ms | Step: 0ms     
+ * Training Loss is: 0.264	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s155ms | Step: 0ms     
+ * Current test accuracy top1:	0.8633	
+ * Current test loss: 0.448	
+ * Best top1: 0.876, at epoch: 60	
+
+
+----- Epoch 75 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 25s207ms | Step: 0ms    
+ * Training Loss is: 0.266	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s188ms | Step: 0ms     
+ * Current test accuracy top1:	0.8761	
+ * Current test loss: 0.403	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.8761, at epoch: 75	
+
+
+----- Epoch 76 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 25s161ms | Step: 0ms    
+ * Training Loss is: 0.185	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s176ms | Step: 0ms     
+ * Current test accuracy top1:	0.8744	
+ * Current test loss: 0.393	
+ * Best top1: 0.8761, at epoch: 75	
+
+
+----- Epoch 77 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 25s303ms | Step: 0ms    
+ * Training Loss is: 0.250	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s221ms | Step: 0ms     
+ * Current test accuracy top1:	0.874	
+ * Current test loss: 0.418	
+ * Best top1: 0.8761, at epoch: 75	
+
+
+----- Epoch 78 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 25s807ms | Step: 0ms    
+ * Training Loss is: 0.197	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s189ms | Step: 0ms     
+ * Current test accuracy top1:	0.8502	
+ * Current test loss: 0.472	
+ * Best top1: 0.8761, at epoch: 75	
+
+
+----- Epoch 79 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 26s45ms | Step: 0ms     
+ * Training Loss is: 0.196	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s204ms | Step: 0ms     
+ * Current test accuracy top1:	0.8655	
+ * Current test loss: 0.445	
+ * Best top1: 0.8761, at epoch: 75	
+
+
+----- Epoch 80 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 25s792ms | Step: 0ms    
+ * Training Loss is: 0.214	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s226ms | Step: 0ms     
+ * Current test accuracy top1:	0.8797	
+ * Current test loss: 0.381	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.8797, at epoch: 80	
+
+
+----- Epoch 81 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.1	
+ [======================================== 50000/50000 ================================>]  Tot: 25s274ms | Step: 0ms    
+ * Training Loss is: 0.141	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s238ms | Step: 0ms     
+ * Current test accuracy top1:	0.9073	
+ * Current test loss: 0.288	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.9073, at epoch: 81	
+
+
+----- Epoch 82 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 25s445ms | Step: 0ms    
+ * Training Loss is: 0.188	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s185ms | Step: 0ms     
+ * Current test accuracy top1:	0.9093	
+ * Current test loss: 0.288	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.9093, at epoch: 82	
+
+
+----- Epoch 83 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 25s851ms | Step: 0ms    
+ * Training Loss is: 0.145	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s200ms | Step: 0ms     
+ * Current test accuracy top1:	0.9117	
+ * Current test loss: 0.284	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.9117, at epoch: 83	
+
+
+----- Epoch 84 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 25s877ms | Step: 0ms    
+ * Training Loss is: 0.036	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s224ms | Step: 0ms     
+ * Current test accuracy top1:	0.9141	
+ * Current test loss: 0.282	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.9141, at epoch: 84	
+
+
+----- Epoch 85 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 25s370ms | Step: 0ms    
+ * Training Loss is: 0.095	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s256ms | Step: 0ms     
+ * Current test accuracy top1:	0.913	
+ * Current test loss: 0.291	
+ * Best top1: 0.9141, at epoch: 84	
+
+
+----- Epoch 86 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 25s808ms | Step: 0ms    
+ * Training Loss is: 0.048	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s282ms | Step: 0ms     
+ * Current test accuracy top1:	0.914	
+ * Current test loss: 0.289	
+ * Best top1: 0.9141, at epoch: 84	
+
+
+----- Epoch 87 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s133ms | Step: 0ms    
+ * Training Loss is: 0.085	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s239ms | Step: 0ms     
+ * Current test accuracy top1:	0.915	
+ * Current test loss: 0.294	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.915, at epoch: 87	
+
+
+----- Epoch 88 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 25s542ms | Step: 0ms    
+ * Training Loss is: 0.031	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s294ms | Step: 0ms     
+ * Current test accuracy top1:	0.9153	
+ * Current test loss: 0.296	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.9153, at epoch: 88	
+
+
+----- Epoch 89 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 25s612ms | Step: 0ms    
+ * Training Loss is: 0.077	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s273ms | Step: 0ms     
+ * Current test accuracy top1:	0.915	
+ * Current test loss: 0.297	
+ * Best top1: 0.9153, at epoch: 88	
+
+
+----- Epoch 90 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s388ms | Step: 0ms    
+ * Training Loss is: 0.049	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s268ms | Step: 0ms     
+ * Current test accuracy top1:	0.9139	
+ * Current test loss: 0.299	
+ * Best top1: 0.9153, at epoch: 88	
+
+
+----- Epoch 91 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 25s962ms | Step: 0ms    
+ * Training Loss is: 0.089	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s291ms | Step: 0ms     
+ * Current test accuracy top1:	0.9164	
+ * Current test loss: 0.299	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.9164, at epoch: 91	
+
+
+----- Epoch 92 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 25s890ms | Step: 0ms    
+ * Training Loss is: 0.076	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s291ms | Step: 0ms     
+ * Current test accuracy top1:	0.9146	
+ * Current test loss: 0.301	
+ * Best top1: 0.9164, at epoch: 91	
+
+
+----- Epoch 93 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s252ms | Step: 0ms    
+ * Training Loss is: 0.072	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s292ms | Step: 0ms     
+ * Current test accuracy top1:	0.9155	
+ * Current test loss: 0.307	
+ * Best top1: 0.9164, at epoch: 91	
+
+
+----- Epoch 94 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 25s764ms | Step: 0ms    
+ * Training Loss is: 0.078	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s270ms | Step: 0ms     
+ * Current test accuracy top1:	0.9135	
+ * Current test loss: 0.303	
+ * Best top1: 0.9164, at epoch: 91	
+
+
+----- Epoch 95 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s664ms | Step: 0ms    
+ * Training Loss is: 0.061	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s275ms | Step: 0ms     
+ * Current test accuracy top1:	0.9156	
+ * Current test loss: 0.307	
+ * Best top1: 0.9164, at epoch: 91	
+
+
+----- Epoch 96 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s212ms | Step: 0ms    
+ * Training Loss is: 0.098	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s285ms | Step: 0ms     
+ * Current test accuracy top1:	0.916	
+ * Current test loss: 0.309	
+ * Best top1: 0.9164, at epoch: 91	
+
+
+----- Epoch 97 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s828ms | Step: 0ms    
+ * Training Loss is: 0.076	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s276ms | Step: 0ms     
+ * Current test accuracy top1:	0.9155	
+ * Current test loss: 0.313	
+ * Best top1: 0.9164, at epoch: 91	
+
+
+----- Epoch 98 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s163ms | Step: 0ms    
+ * Training Loss is: 0.044	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s261ms | Step: 0ms     
+ * Current test accuracy top1:	0.9169	
+ * Current test loss: 0.318	
+ * SAVING BEST MODEL (model, optState, log) to local mahine...	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 99 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 25s914ms | Step: 0ms    
+ * Training Loss is: 0.047	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s324ms | Step: 0ms     
+ * Current test accuracy top1:	0.9163	
+ * Current test loss: 0.319	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 100 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s703ms | Step: 0ms    
+ * Training Loss is: 0.073	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s298ms | Step: 0ms     
+ * Current test accuracy top1:	0.9159	
+ * Current test loss: 0.319	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 101 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s328ms | Step: 0ms    
+ * Training Loss is: 0.064	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s292ms | Step: 0ms     
+ * Current test accuracy top1:	0.9167	
+ * Current test loss: 0.327	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 102 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 25s963ms | Step: 0ms    
+ * Training Loss is: 0.037	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s307ms | Step: 0ms     
+ * Current test accuracy top1:	0.9128	
+ * Current test loss: 0.325	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 103 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s224ms | Step: 0ms    
+ * Training Loss is: 0.034	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s309ms | Step: 0ms     
+ * Current test accuracy top1:	0.9146	
+ * Current test loss: 0.327	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 104 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s810ms | Step: 0ms    
+ * Training Loss is: 0.024	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s317ms | Step: 0ms     
+ * Current test accuracy top1:	0.9139	
+ * Current test loss: 0.322	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 105 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 25s917ms | Step: 0ms    
+ * Training Loss is: 0.079	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s346ms | Step: 0ms     
+ * Current test accuracy top1:	0.9144	
+ * Current test loss: 0.325	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 106 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s150ms | Step: 0ms    
+ * Training Loss is: 0.048	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s320ms | Step: 0ms     
+ * Current test accuracy top1:	0.9153	
+ * Current test loss: 0.327	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 107 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s143ms | Step: 0ms    
+ * Training Loss is: 0.075	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s372ms | Step: 0ms     
+ * Current test accuracy top1:	0.9141	
+ * Current test loss: 0.337	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 108 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s637ms | Step: 0ms    
+ * Training Loss is: 0.025	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s328ms | Step: 0ms     
+ * Current test accuracy top1:	0.9134	
+ * Current test loss: 0.341	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 109 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s425ms | Step: 0ms    
+ * Training Loss is: 0.030	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s346ms | Step: 0ms     
+ * Current test accuracy top1:	0.9151	
+ * Current test loss: 0.345	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 110 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s445ms | Step: 0ms    
+ * Training Loss is: 0.017	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s348ms | Step: 0ms     
+ * Current test accuracy top1:	0.9143	
+ * Current test loss: 0.341	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 111 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s808ms | Step: 0ms    
+ * Training Loss is: 0.072	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s351ms | Step: 0ms     
+ * Current test accuracy top1:	0.9119	
+ * Current test loss: 0.350	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 112 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s176ms | Step: 0ms    
+ * Training Loss is: 0.036	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s348ms | Step: 0ms     
+ * Current test accuracy top1:	0.9145	
+ * Current test loss: 0.328	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 113 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s410ms | Step: 0ms    
+ * Training Loss is: 0.016	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s341ms | Step: 0ms     
+ * Current test accuracy top1:	0.9118	
+ * Current test loss: 0.347	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 114 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s484ms | Step: 0ms    
+ * Training Loss is: 0.098	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s355ms | Step: 0ms     
+ * Current test accuracy top1:	0.9139	
+ * Current test loss: 0.350	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 115 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s220ms | Step: 0ms    
+ * Training Loss is: 0.057	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s350ms | Step: 0ms     
+ * Current test accuracy top1:	0.9124	
+ * Current test loss: 0.355	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 116 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s757ms | Step: 0ms    
+ * Training Loss is: 0.060	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s325ms | Step: 0ms     
+ * Current test accuracy top1:	0.9115	
+ * Current test loss: 0.354	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 117 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 26s914ms | Step: 0ms    
+ * Training Loss is: 0.060	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s339ms | Step: 0ms     
+ * Current test accuracy top1:	0.911	
+ * Current test loss: 0.353	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 118 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 27s868ms | Step: 0ms    
+ * Training Loss is: 0.048	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s409ms | Step: 0ms     
+ * Current test accuracy top1:	0.9132	
+ * Current test loss: 0.351	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 119 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 27s607ms | Step: 0ms    
+ * Training Loss is: 0.028	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s474ms | Step: 0ms     
+ * Current test accuracy top1:	0.9128	
+ * Current test loss: 0.346	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 120 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 28s375ms | Step: 0ms    
+ * Training Loss is: 0.032	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s483ms | Step: 0ms     
+ * Current test accuracy top1:	0.9075	
+ * Current test loss: 0.375	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 121 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.01	
+ [======================================== 50000/50000 ================================>]  Tot: 28s560ms | Step: 0ms    
+ * Training Loss is: 0.027	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s448ms | Step: 0ms     
+ * Current test accuracy top1:	0.9109	
+ * Current test loss: 0.357	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 122 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s701ms | Step: 0ms    
+ * Training Loss is: 0.054	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s447ms | Step: 0ms     
+ * Current test accuracy top1:	0.9124	
+ * Current test loss: 0.351	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 123 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 26s994ms | Step: 0ms    
+ * Training Loss is: 0.006	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s370ms | Step: 0ms     
+ * Current test accuracy top1:	0.9131	
+ * Current test loss: 0.356	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 124 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 26s674ms | Step: 0ms    
+ * Training Loss is: 0.025	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s395ms | Step: 0ms     
+ * Current test accuracy top1:	0.9131	
+ * Current test loss: 0.354	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 125 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 26s842ms | Step: 0ms    
+ * Training Loss is: 0.046	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s377ms | Step: 0ms     
+ * Current test accuracy top1:	0.914	
+ * Current test loss: 0.347	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 126 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 26s709ms | Step: 0ms    
+ * Training Loss is: 0.019	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s407ms | Step: 0ms     
+ * Current test accuracy top1:	0.9134	
+ * Current test loss: 0.347	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 127 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 26s712ms | Step: 0ms    
+ * Training Loss is: 0.016	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s417ms | Step: 0ms     
+ * Current test accuracy top1:	0.9137	
+ * Current test loss: 0.347	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 128 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 26s806ms | Step: 0ms    
+ * Training Loss is: 0.031	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s405ms | Step: 0ms     
+ * Current test accuracy top1:	0.9133	
+ * Current test loss: 0.350	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 129 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 26s806ms | Step: 0ms    
+ * Training Loss is: 0.070	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s490ms | Step: 0ms     
+ * Current test accuracy top1:	0.913	
+ * Current test loss: 0.353	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 130 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 26s993ms | Step: 0ms    
+ * Training Loss is: 0.046	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s459ms | Step: 0ms     
+ * Current test accuracy top1:	0.9142	
+ * Current test loss: 0.348	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 131 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s45ms | Step: 0ms     
+ * Training Loss is: 0.011	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s445ms | Step: 0ms     
+ * Current test accuracy top1:	0.9135	
+ * Current test loss: 0.350	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 132 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 28s59ms | Step: 0ms     
+ * Training Loss is: 0.017	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s460ms | Step: 0ms     
+ * Current test accuracy top1:	0.9136	
+ * Current test loss: 0.349	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 133 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s34ms | Step: 0ms     
+ * Training Loss is: 0.025	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s454ms | Step: 0ms     
+ * Current test accuracy top1:	0.914	
+ * Current test loss: 0.352	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 134 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 26s816ms | Step: 0ms    
+ * Training Loss is: 0.041	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s435ms | Step: 0ms     
+ * Current test accuracy top1:	0.9139	
+ * Current test loss: 0.351	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 135 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s164ms | Step: 0ms    
+ * Training Loss is: 0.034	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s487ms | Step: 0ms     
+ * Current test accuracy top1:	0.9146	
+ * Current test loss: 0.349	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 136 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 26s929ms | Step: 0ms    
+ * Training Loss is: 0.012	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s457ms | Step: 0ms     
+ * Current test accuracy top1:	0.9151	
+ * Current test loss: 0.349	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 137 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s293ms | Step: 0ms    
+ * Training Loss is: 0.032	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s441ms | Step: 0ms     
+ * Current test accuracy top1:	0.9129	
+ * Current test loss: 0.352	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 138 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s127ms | Step: 0ms    
+ * Training Loss is: 0.009	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s468ms | Step: 0ms     
+ * Current test accuracy top1:	0.9138	
+ * Current test loss: 0.349	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 139 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s102ms | Step: 0ms    
+ * Training Loss is: 0.027	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s459ms | Step: 0ms     
+ * Current test accuracy top1:	0.9142	
+ * Current test loss: 0.348	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 140 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s337ms | Step: 0ms    
+ * Training Loss is: 0.026	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s495ms | Step: 0ms     
+ * Current test accuracy top1:	0.9133	
+ * Current test loss: 0.351	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 141 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s331ms | Step: 0ms    
+ * Training Loss is: 0.045	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s488ms | Step: 0ms     
+ * Current test accuracy top1:	0.9139	
+ * Current test loss: 0.353	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 142 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s679ms | Step: 0ms    
+ * Training Loss is: 0.047	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s524ms | Step: 0ms     
+ * Current test accuracy top1:	0.9146	
+ * Current test loss: 0.352	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 143 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s381ms | Step: 0ms    
+ * Training Loss is: 0.063	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s547ms | Step: 0ms     
+ * Current test accuracy top1:	0.9146	
+ * Current test loss: 0.348	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 144 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s506ms | Step: 0ms    
+ * Training Loss is: 0.041	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s493ms | Step: 0ms     
+ * Current test accuracy top1:	0.9156	
+ * Current test loss: 0.350	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 145 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s679ms | Step: 0ms    
+ * Training Loss is: 0.029	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s515ms | Step: 0ms     
+ * Current test accuracy top1:	0.9148	
+ * Current test loss: 0.354	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 146 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 28s610ms | Step: 0ms    
+ * Training Loss is: 0.014	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s544ms | Step: 0ms     
+ * Current test accuracy top1:	0.9136	
+ * Current test loss: 0.351	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 147 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s169ms | Step: 0ms    
+ * Training Loss is: 0.018	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s576ms | Step: 0ms     
+ * Current test accuracy top1:	0.9146	
+ * Current test loss: 0.349	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 148 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s969ms | Step: 0ms    
+ * Training Loss is: 0.021	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s573ms | Step: 0ms     
+ * Current test accuracy top1:	0.9145	
+ * Current test loss: 0.350	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 149 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 28s53ms | Step: 0ms     
+ * Training Loss is: 0.014	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s531ms | Step: 0ms     
+ * Current test accuracy top1:	0.9156	
+ * Current test loss: 0.350	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 150 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 28s140ms | Step: 0ms    
+ * Training Loss is: 0.047	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s581ms | Step: 0ms     
+ * Current test accuracy top1:	0.9154	
+ * Current test loss: 0.352	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 151 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s691ms | Step: 0ms    
+ * Training Loss is: 0.022	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s549ms | Step: 0ms     
+ * Current test accuracy top1:	0.9153	
+ * Current test loss: 0.350	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 152 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s972ms | Step: 0ms    
+ * Training Loss is: 0.026	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s581ms | Step: 0ms     
+ * Current test accuracy top1:	0.9144	
+ * Current test loss: 0.355	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 153 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s917ms | Step: 0ms    
+ * Training Loss is: 0.027	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s566ms | Step: 0ms     
+ * Current test accuracy top1:	0.9134	
+ * Current test loss: 0.354	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 154 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 28s | Step: 0ms         
+ * Training Loss is: 0.043	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s567ms | Step: 0ms     
+ * Current test accuracy top1:	0.9147	
+ * Current test loss: 0.352	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 155 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 28s114ms | Step: 0ms    
+ * Training Loss is: 0.090	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s605ms | Step: 0ms     
+ * Current test accuracy top1:	0.914	
+ * Current test loss: 0.353	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 156 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s889ms | Step: 0ms    
+ * Training Loss is: 0.057	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s587ms | Step: 0ms     
+ * Current test accuracy top1:	0.9152	
+ * Current test loss: 0.350	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 157 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 28s19ms | Step: 0ms     
+ * Training Loss is: 0.036	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s619ms | Step: 0ms     
+ * Current test accuracy top1:	0.9139	
+ * Current test loss: 0.355	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 158 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s905ms | Step: 0ms    
+ * Training Loss is: 0.010	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s658ms | Step: 0ms     
+ * Current test accuracy top1:	0.9153	
+ * Current test loss: 0.354	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 159 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 28s782ms | Step: 0ms    
+ * Training Loss is: 0.013	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s631ms | Step: 0ms     
+ * Current test accuracy top1:	0.9154	
+ * Current test loss: 0.353	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 160 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 28s363ms | Step: 0ms    
+ * Training Loss is: 0.021	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s634ms | Step: 0ms     
+ * Current test accuracy top1:	0.9138	
+ * Current test loss: 0.352	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 161 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 28s166ms | Step: 0ms    
+ * Training Loss is: 0.030	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s589ms | Step: 0ms     
+ * Current test accuracy top1:	0.9141	
+ * Current test loss: 0.355	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 162 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s800ms | Step: 0ms    
+ * Training Loss is: 0.009	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s580ms | Step: 0ms     
+ * Current test accuracy top1:	0.914	
+ * Current test loss: 0.355	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 163 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s731ms | Step: 0ms    
+ * Training Loss is: 0.004	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s620ms | Step: 0ms     
+ * Current test accuracy top1:	0.9142	
+ * Current test loss: 0.356	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 164 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s991ms | Step: 0ms    
+ * Training Loss is: 0.041	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s575ms | Step: 0ms     
+ * Current test accuracy top1:	0.9143	
+ * Current test loss: 0.359	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 165 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 27s963ms | Step: 0ms    
+ * Training Loss is: 0.041	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s606ms | Step: 0ms     
+ * Current test accuracy top1:	0.9141	
+ * Current test loss: 0.358	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 166 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 28s247ms | Step: 0ms    
+ * Training Loss is: 0.025	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s604ms | Step: 0ms     
+ * Current test accuracy top1:	0.9139	
+ * Current test loss: 0.356	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 167 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 28s295ms | Step: 0ms    
+ * Training Loss is: 0.018	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s617ms | Step: 0ms     
+ * Current test accuracy top1:	0.9136	
+ * Current test loss: 0.359	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 168 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 28s26ms | Step: 0ms     
+ * Training Loss is: 0.005	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s653ms | Step: 0ms     
+ * Current test accuracy top1:	0.9135	
+ * Current test loss: 0.363	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 169 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s667ms | Step: 0ms    
+ * Training Loss is: 0.017	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s753ms | Step: 0ms     
+ * Current test accuracy top1:	0.9136	
+ * Current test loss: 0.362	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 170 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 30s349ms | Step: 0ms    
+ * Training Loss is: 0.019	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s724ms | Step: 0ms     
+ * Current test accuracy top1:	0.9143	
+ * Current test loss: 0.358	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 171 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s17ms | Step: 0ms     
+ * Training Loss is: 0.009	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s760ms | Step: 0ms     
+ * Current test accuracy top1:	0.9143	
+ * Current test loss: 0.361	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 172 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s83ms | Step: 0ms     
+ * Training Loss is: 0.038	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s749ms | Step: 0ms     
+ * Current test accuracy top1:	0.9117	
+ * Current test loss: 0.360	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 173 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s168ms | Step: 0ms    
+ * Training Loss is: 0.010	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s736ms | Step: 0ms     
+ * Current test accuracy top1:	0.913	
+ * Current test loss: 0.363	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 174 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s116ms | Step: 0ms    
+ * Training Loss is: 0.027	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s768ms | Step: 0ms     
+ * Current test accuracy top1:	0.9129	
+ * Current test loss: 0.362	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 175 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s294ms | Step: 0ms    
+ * Training Loss is: 0.021	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s762ms | Step: 0ms     
+ * Current test accuracy top1:	0.9146	
+ * Current test loss: 0.361	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 176 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s482ms | Step: 0ms    
+ * Training Loss is: 0.011	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s802ms | Step: 0ms     
+ * Current test accuracy top1:	0.9141	
+ * Current test loss: 0.364	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 177 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s305ms | Step: 0ms    
+ * Training Loss is: 0.033	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s790ms | Step: 0ms     
+ * Current test accuracy top1:	0.9125	
+ * Current test loss: 0.362	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 178 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s499ms | Step: 0ms    
+ * Training Loss is: 0.013	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s781ms | Step: 0ms     
+ * Current test accuracy top1:	0.913	
+ * Current test loss: 0.364	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 179 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 30s941ms | Step: 0ms    
+ * Training Loss is: 0.039	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s834ms | Step: 0ms     
+ * Current test accuracy top1:	0.9139	
+ * Current test loss: 0.365	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 180 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s740ms | Step: 0ms    
+ * Training Loss is: 0.044	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s872ms | Step: 0ms     
+ * Current test accuracy top1:	0.9124	
+ * Current test loss: 0.366	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 181 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s689ms | Step: 0ms    
+ * Training Loss is: 0.019	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s879ms | Step: 0ms     
+ * Current test accuracy top1:	0.9142	
+ * Current test loss: 0.362	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 182 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s505ms | Step: 0ms    
+ * Training Loss is: 0.025	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s864ms | Step: 0ms     
+ * Current test accuracy top1:	0.9135	
+ * Current test loss: 0.363	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 183 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s744ms | Step: 0ms    
+ * Training Loss is: 0.013	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s816ms | Step: 0ms     
+ * Current test accuracy top1:	0.9137	
+ * Current test loss: 0.357	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 184 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s666ms | Step: 0ms    
+ * Training Loss is: 0.011	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s816ms | Step: 0ms     
+ * Current test accuracy top1:	0.9141	
+ * Current test loss: 0.363	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 185 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s783ms | Step: 0ms    
+ * Training Loss is: 0.021	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s821ms | Step: 0ms     
+ * Current test accuracy top1:	0.9146	
+ * Current test loss: 0.355	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 186 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 31s610ms | Step: 0ms    
+ * Training Loss is: 0.019	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s889ms | Step: 0ms     
+ * Current test accuracy top1:	0.914	
+ * Current test loss: 0.360	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 187 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s830ms | Step: 0ms    
+ * Training Loss is: 0.031	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s832ms | Step: 0ms     
+ * Current test accuracy top1:	0.9142	
+ * Current test loss: 0.365	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 188 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 30s51ms | Step: 0ms     
+ * Training Loss is: 0.022	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s897ms | Step: 0ms     
+ * Current test accuracy top1:	0.9152	
+ * Current test loss: 0.363	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 189 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 30s669ms | Step: 0ms    
+ * Training Loss is: 0.009	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s867ms | Step: 0ms     
+ * Current test accuracy top1:	0.9143	
+ * Current test loss: 0.364	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 190 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s689ms | Step: 0ms    
+ * Training Loss is: 0.012	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s882ms | Step: 0ms     
+ * Current test accuracy top1:	0.9147	
+ * Current test loss: 0.364	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 191 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s573ms | Step: 0ms    
+ * Training Loss is: 0.018	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s816ms | Step: 0ms     
+ * Current test accuracy top1:	0.9144	
+ * Current test loss: 0.364	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 192 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s393ms | Step: 0ms    
+ * Training Loss is: 0.020	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s848ms | Step: 0ms     
+ * Current test accuracy top1:	0.9149	
+ * Current test loss: 0.364	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 193 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s830ms | Step: 0ms    
+ * Training Loss is: 0.023	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s868ms | Step: 0ms     
+ * Current test accuracy top1:	0.9146	
+ * Current test loss: 0.367	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 194 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s695ms | Step: 0ms    
+ * Training Loss is: 0.016	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s835ms | Step: 0ms     
+ * Current test accuracy top1:	0.9139	
+ * Current test loss: 0.367	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 195 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 29s669ms | Step: 0ms    
+ * Training Loss is: 0.019	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s837ms | Step: 0ms     
+ * Current test accuracy top1:	0.9141	
+ * Current test loss: 0.365	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 196 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 31s463ms | Step: 0ms    
+ * Training Loss is: 0.056	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s921ms | Step: 0ms     
+ * Current test accuracy top1:	0.9133	
+ * Current test loss: 0.366	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 197 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 30s628ms | Step: 0ms    
+ * Training Loss is: 0.014	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s918ms | Step: 0ms     
+ * Current test accuracy top1:	0.9136	
+ * Current test loss: 0.369	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 198 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 30s493ms | Step: 0ms    
+ * Training Loss is: 0.030	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s951ms | Step: 0ms     
+ * Current test accuracy top1:	0.913	
+ * Current test loss: 0.372	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 199 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 30s701ms | Step: 0ms    
+ * Training Loss is: 0.029	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 2s962ms | Step: 0ms     
+ * Current test accuracy top1:	0.9147	
+ * Current test loss: 0.367	
+ * Best top1: 0.9169, at epoch: 98	
+
+
+----- Epoch 200 ----- Tag: 2016_04_25_16:48:12	
+learning rate is	0.001	
+ [======================================== 50000/50000 ================================>]  Tot: 31s63ms | Step: 0ms     
+ * Training Loss is: 0.029	
+Evaluating...	
+ [======================================== 10000/10000 ================================>]  Tot: 3s30ms | Step: 0ms      
+ * Current test accuracy top1:	0.9131	
+ * Current test loss: 0.371	
+ * Best top1: 0.9169, at epoch: 98	

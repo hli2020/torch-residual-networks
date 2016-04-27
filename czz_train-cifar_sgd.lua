@@ -64,19 +64,11 @@ local DEBUG = false
 local AWS = false
 
 opt = {
-<<<<<<< HEAD
   batchSize         = 128,
   iterSize          = 1,
-  Nsize             = 18, --3,
-  -- dataRoot          = "/home/zhizhen/cifar10torchsmall/cifar-10-batches-t7",
-=======
-  batchSize         = 64,
-  iterSize          = 2,
-  Nsize             = 3,
+  Nsize             = 33,
   dataRoot          = "/home/zhizhen/cifar10torchsmall/cifar-10-batches-t7",
->>>>>>> 3a2d9a992e6604a81593ffd4938f88fecf3ee5bb
   --dataRoot	    = "/media/DATADISK/hyli/dataset/cifar-10-batches-t7",
-  dataRoot          = "/home/hongyang/dataset/cifar-10-batches-t7",
   loadFrom          = "",
   expRootName       = "cifar_ablation",
   expSuffix         = "local",
@@ -87,7 +79,7 @@ opt = {
 
 -- sdg init
 sgdState = {
-   learningRate   = "will be set later",    -- REMEMBER to check the lr_policy below
+   learningRate     = "will be set later",    -- REMEMBER to check the lr_policy below
    weightDecay    = 0.0001,
    momentum       = 0.9,
    dampening      = 0,
@@ -107,7 +99,7 @@ end
 
 lossLog_local = {}
 errorLog_local = {}
-opt.beginToSave = 1
+opt.beginToSave = 50
 bestTop1 = 0
 firstSave = true -- trivial variable
 
@@ -205,11 +197,11 @@ if opt.loadFrom == "" then
 
     -- save the network in local
     -- TODO: save it to S3
-    print('network graph saved (as .svg)!')
-    graph.dot(model.fg, 'Forward Graph', 'network_graph')
-    local command = string.format("mv network_graph.* snapshots/%s/%s/%s", 
-     opt.expRootName, opt.note, timestamp)
-    os.execute(command)
+    --print('network graph saved (as .svg)!')
+    --graph.dot(model.fg, 'Forward Graph', 'network_graph')
+    --local command = string.format("mv network_graph.* snapshots/%s/%s/%s", 
+    --  opt.expRootName, opt.note, timestamp)
+    --os.execute(command)
 else
     print("Loading model from "..opt.loadFrom)
     model = torch.load(opt.loadFrom)

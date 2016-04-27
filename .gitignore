@@ -1,7 +1,6 @@
 *.t7
 mnist.hdf5
 *.swp
-*.gitignore~
 cache
 *.svg
 *.dot
@@ -9,3 +8,4 @@ cache
 nohup.out
 *.txt~
 *.lua~
+.gitignore~

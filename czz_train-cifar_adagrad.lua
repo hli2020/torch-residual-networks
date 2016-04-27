@@ -40,7 +40,7 @@ function saveToCSV(log, name)
     fid:write(toCSV(row))
   end
   fid:close()
-  os.execute("mv *.csv snapshots/" .. opt.expRootName .."/".. opt.note.."/"..timestamp)
+  os.execute("mv *.csv Adagradsnapshots/" .. opt.expRootName .."/".. opt.note.."/"..timestamp)
 end
 ----------
 
@@ -64,9 +64,9 @@ local DEBUG = false
 local AWS = false
 
 opt = {
-  batchSize         = 64,
-  iterSize          = 2,
-  Nsize             = 3,
+  batchSize         = 128,
+  iterSize          = 1,
+  Nsize             = 18,
   dataRoot          = "/home/zhizhen/cifar10torchsmall/cifar-10-batches-t7",
   --dataRoot	    = "/media/DATADISK/hyli/dataset/cifar-10-batches-t7",
   loadFrom          = "",
@@ -79,12 +79,10 @@ opt = {
 
 -- sdg init
 sgdState = {
-   learningRate   = "will be set later",    -- REMEMBER to check the lr_policy below
-   weightDecay    = 0.0001,
-   momentum       = 0.9,
-   dampening      = 0,
-   nesterov       = true,
-   maxEpoch       = 200,
+   learningRate     = "will be set later",    -- REMEMBER to check the lr_policy below
+   --alpha            = 0.9,
+   whichOptimMethod = 'adagrad',
+   maxEpoch         = 200,
 }
 
 function get_lr(epoch)
@@ -99,7 +97,7 @@ end
 
 lossLog_local = {}
 errorLog_local = {}
-opt.beginToSave = 1
+opt.beginToSave = 50
 bestTop1 = 0
 firstSave = true -- trivial variable
 
@@ -133,7 +131,7 @@ end
 ----------------------------------------------
 ----------------------------------------------
 -- make folder to hold local model results
-os.execute("mkdir -p snapshots/"..opt.expRootName.."/"
+os.execute("mkdir -p Adagradsnapshots/"..opt.expRootName.."/"
   ..opt.note.."/"..timestamp)
 
 print("Training settings:")
@@ -199,7 +197,7 @@ if opt.loadFrom == "" then
     -- TODO: save it to S3
     --print('network graph saved (as .svg)!')
     --graph.dot(model.fg, 'Forward Graph', 'network_graph')
-    --local command = string.format("mv network_graph.* snapshots/%s/%s/%s", 
+    --local command = string.format("mv network_graph.* Adagradsnapshots/%s/%s/%s", 
     --  opt.expRootName, opt.note, timestamp)
     --os.execute(command)
 else
@@ -318,13 +316,13 @@ function evalModel()
         if firstSave then
           firstSave = false
         else
-          os.execute("rm snapshots/" .. opt.expRootName .."/".. opt.note.."/"
+          os.execute("rm Adagradsnapshots/" .. opt.expRootName .."/".. opt.note.."/"
             ..timestamp.."/best_*")
         end
 
         torch.save(string.format("best_model_epoch_%d.t7", iter), model)
         torch.save(string.format("best_sgdState_epoch_%d.t7", iter), sgdState)
-        os.execute("mv *.t7 snapshots/" .. opt.expRootName .."/".. opt.note.."/"..timestamp)
+        os.execute("mv *.t7 Adagradsnapshots/" .. opt.expRootName .."/".. opt.note.."/"..timestamp)
         -- torch.save(string.format("log_train_test_epoch_%d.t7", iter), LOG)
         -- fid = torch.DiskFile(string.format("log_train_test_epoch_%d.t7", iter), 'w')
         -- fid:writeObject(LOG)

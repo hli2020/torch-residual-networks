@@ -64,9 +64,9 @@ local DEBUG = false
 local AWS = false
 
 opt = {
-  batchSize         = 64,
-  iterSize          = 2,
-  Nsize             = 3,
+  batchSize         = 128,
+  iterSize          = 1,
+  Nsize             = 33,
   dataRoot          = "/home/zhizhen/cifar10torchsmall/cifar-10-batches-t7",
   --dataRoot	    = "/media/DATADISK/hyli/dataset/cifar-10-batches-t7",
   loadFrom          = "",
@@ -79,7 +79,7 @@ opt = {
 
 -- sdg init
 sgdState = {
-   learningRate   = "will be set later",    -- REMEMBER to check the lr_policy below
+   learningRate     = "will be set later",    -- REMEMBER to check the lr_policy below
    weightDecay    = 0.0001,
    momentum       = 0.9,
    dampening      = 0,
@@ -99,7 +99,7 @@ end
 
 lossLog_local = {}
 errorLog_local = {}
-opt.beginToSave = 1
+opt.beginToSave = 50
 bestTop1 = 0
 firstSave = true -- trivial variable
 

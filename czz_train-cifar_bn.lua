@@ -40,7 +40,7 @@ function saveToCSV(log, name)
     fid:write(toCSV(row))
   end
   fid:close()
-  os.execute("mv *.csv bn_snapshots/" .. opt.expRootName .."/".. opt.note.."/"..timestamp)
+  os.execute("mv *.csv new_bn_snapshots/" .. opt.expRootName .."/".. opt.note.."/"..timestamp)
 end
 ----------
 
@@ -66,7 +66,7 @@ local AWS = false
 opt = {
   batchSize         = 128,
   iterSize          = 1,
-  Nsize             = 3,
+  Nsize             = 18,
   dataRoot          = "/home/zhizhen/cifar10torchsmall/cifar-10-batches-t7",
   --dataRoot	    = "/media/DATADISK/hyli/dataset/cifar-10-batches-t7",
   loadFrom          = "",
@@ -133,7 +133,7 @@ end
 ----------------------------------------------
 ----------------------------------------------
 -- make folder to hold local model results
-os.execute("mkdir -p bn_snapshots/"..opt.expRootName.."/"
+os.execute("mkdir -p new_bn_snapshots/"..opt.expRootName.."/"
   ..opt.note.."/"..timestamp)
 
 print("Training settings:")
@@ -199,7 +199,7 @@ if opt.loadFrom == "" then
     -- TODO: save it to S3
     --print('network graph saved (as .svg)!')
     --graph.dot(model.fg, 'Forward Graph', 'network_graph')
-    --local command = string.format("mv network_graph.* bn_snapshots/%s/%s/%s", 
+    --local command = string.format("mv network_graph.* new_bn_snapshots/%s/%s/%s", 
     --  opt.expRootName, opt.note, timestamp)
     --os.execute(command)
 else
@@ -318,13 +318,13 @@ function evalModel()
         if firstSave then
           firstSave = false
         else
-          os.execute("rm bn_snapshots/" .. opt.expRootName .."/".. opt.note.."/"
+          os.execute("rm new_bn_snapshots/" .. opt.expRootName .."/".. opt.note.."/"
             ..timestamp.."/best_*")
         end
 
         torch.save(string.format("best_model_epoch_%d.t7", iter), model)
         torch.save(string.format("best_sgdState_epoch_%d.t7", iter), sgdState)
-        os.execute("mv *.t7 bn_snapshots/" .. opt.expRootName .."/".. opt.note.."/"..timestamp)
+        os.execute("mv *.t7 new_bn_snapshots/" .. opt.expRootName .."/".. opt.note.."/"..timestamp)
         -- torch.save(string.format("log_train_test_epoch_%d.t7", iter), LOG)
         -- fid = torch.DiskFile(string.format("log_train_test_epoch_%d.t7", iter), 'w')
         -- fid:writeObject(LOG)

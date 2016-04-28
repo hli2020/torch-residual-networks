@@ -89,11 +89,11 @@ sgdState = {
 
 function get_lr(epoch)
   if epoch < 80 then
-      sgdState.learningRate = 0.1
+      sgdState.learningRate = 0.05
   elseif epoch < 120 then
-      sgdState.learningRate = 0.01
+      sgdState.learningRate = 0.005
   else
-      sgdState.learningRate = 0.001
+      sgdState.learningRate = 0.0005
   end
 end
 

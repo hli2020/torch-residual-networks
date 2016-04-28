@@ -1,2 +1,0 @@
- * Best top1: 0.8889, at epoch: 136	
-Training done! Check the results!	

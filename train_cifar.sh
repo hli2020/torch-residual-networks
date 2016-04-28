@@ -5,7 +5,7 @@ DATE=$(date +%Y_%m_%d_%H:%M:%S_)
 #echo $DATE) 
 
 # make a sensible name
-log_name='s190'
+log_name='s190_cifar'
 
 if [ ! -d "log" ]; then
   # Control will enter here if $DIRECTORY doesn't exist.
@@ -14,11 +14,13 @@ fi
 
 #-data /home/hongyang/dataset/imagenet_cls/cls \
 GLOG_logtostderr=1 \
+CUDDA_VISIBLE_DEVICES=9,10 \
 th main.lua \
-	-data /data2/dataset/imagenet_cls/raw \
-	-nClasses 500 \
-	-nGPU 8 -nThreads 8 \
-	-batchSize 256 -depth 18 \
+	-data /data2/dataset/cifar-10-batches-t7 \
+	-nClasses 10 \
+	-dataset cifar10 \
+	-nGPU 2 \
+	-batchSize 128 -depth 1202 \
 	-shareGradInput 'true' \
 	-tenCrop 'true' \
 2>&1 | tee log/$DATE$log_name.log

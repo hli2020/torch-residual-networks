@@ -9,8 +9,7 @@ require 'train-helpers'
 require 'data.cifar-dataset'
 
 local nninit = require 'nninit'
-
---nngraph.setDebug(true)
+-- nngraph.setDebug(true)
 function stop() os.exit() end
 
 -- hyli: new here, will be moved into modules in future update
@@ -64,14 +63,16 @@ local DEBUG = true
 local AWS = false
 
 opt = {
+  plain_net         = true,       
   batchSize         = 128,
   iterSize          = 1,
-  Nsize             = 33, --18
-  dataRoot          = "/home/zhizhen/cifar10torchsmall/cifar-10-batches-t7",
-  --dataRoot	    = "/media/DATADISK/hyli/dataset/cifar-10-batches-t7",
+  Nsize             = 33, --3, --18
+  -- dataRoot          = "/home/zhizhen/cifar10torchsmall/cifar-10-batches-t7",
+  dataRoot          = "/home/hongyang/dataset/cifar-10-batches-t7",
+  -- dataRoot	    = "/media/DATADISK/hyli/dataset/cifar-10-batches-t7",
   loadFrom          = "",
   expRootName       = "cifar_ablation",
-  expSuffix         = "local",
+  expSuffix         = "server",
   -- indicate which machine it's deployed, 'ls139', 'fuck', whatever you like        
   gpuId             = 1   -- start from 1
   -- localSaveInterval = 2   -- in unit of epoch, DEPRECATED from v4
@@ -89,17 +90,17 @@ sgdState = {
 
 function get_lr(epoch)
   if epoch < 80 then
-      sgdState.learningRate = 0.05
+      sgdState.learningRate = opt.Nsize == 33 and 0.05 or 0.1
   elseif epoch < 120 then
-      sgdState.learningRate = 0.005
+      sgdState.learningRate = opt.Nsize == 33 and 0.005 or 0.01
   else
-      sgdState.learningRate = 0.0005
+      sgdState.learningRate = opt.Nsize == 33 and 0.0005 or 0.001
   end
 end
 
 lossLog_local = {}
 errorLog_local = {}
-opt.beginToSave = 1
+opt.beginToSave = 5
 bestTop1 = 0
 firstSave = true -- trivial variable
 
@@ -157,6 +158,7 @@ local N = opt.Nsize
 if opt.loadFrom == "" then
 
     input = nn.Identity()()
+    -- model = nn.Sequential()
     --print(input)    -- nngraph.Node
     ------> 3, 32,32
     model = cudnn.SpatialConvolution(3, 16, 3,3, 1,1, 1,1)
@@ -197,11 +199,12 @@ if opt.loadFrom == "" then
 
     -- save the network in local
     -- TODO: save it to S3
-    --print('network graph saved (as .svg)!')
-    --raph.dot(model.fg, 'Forward Graph', 'network_graph')
-    --local command = string.format("mv network_graph.* snapshots/%s/%s/%s", 
-    --  opt.expRootName, opt.note, timestamp)
-    --os.execute(command)
+    -- update by hyli: N=18 failed to generate the net. try smaller depth 
+    print('network graph saved (as .svg)!')
+    graph.dot(model.fg, 'Forward Graph', 'network_graph')
+    local command = string.format("mv network_graph.* snapshots/%s/%s/%s", 
+     opt.expRootName, opt.note, timestamp)
+    os.execute(command)
 else
     print("Loading model from "..opt.loadFrom)
     model = torch.load(opt.loadFrom)
@@ -315,23 +318,12 @@ function evalModel()
         bestEpoch = iter
 
         -- first delete previous best models
-<<<<<<< HEAD
-        --if firstSave then
-        --  firstSave = false
-        --else
-        --  os.execute("rm snapshots/" .. opt.expRootName .."/".. opt.note.."/"
-        --    ..timestamp.."/best_*")
-        --  os.execute("rm snapshots/" .. opt.expRootName .."/".. opt.note.."/"
-        --    ..timestamp.."/log_*")
-        --end
-=======
         if firstSave then
           firstSave = false
         else
           os.execute("rm snapshots/" .. opt.expRootName .."/".. opt.note.."/"
             ..timestamp.."/best_*")
         end
->>>>>>> 82446bbd985180476b4578e8d54fdeb5cd5f060c
 
         torch.save(string.format("best_model_epoch_%d.t7", iter), model)
         torch.save(string.format("best_sgdState_epoch_%d.t7", iter), sgdState)
@@ -346,7 +338,6 @@ function evalModel()
 
         print(' * SAVING BEST MODEL (model, optState, log) to local mahine...')
       end
-
       print(' * Best top1: '..bestTop1..', at epoch: '..bestEpoch)
     end
     
